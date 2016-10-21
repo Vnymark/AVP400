@@ -17,17 +17,20 @@ namespace WcfService
             return string.Format("You entered: {0}", value);
         }
 
-        public CompositeType GetDataUsingDataContract(CompositeType composite)
+        public string AddBook(string name, string description, string url, short visability)
         {
-            if (composite == null)
+            using (DatabaseEntities db = new DatabaseEntities())
             {
-                throw new ArgumentNullException("composite");
+                Book newBook = new Book();
+                newBook.Name = name;
+                newBook.Description = description;
+                newBook.URL = url;
+                newBook.Visability = visability;
+                db.Book.Add(newBook);
+                db.SaveChanges();
+                string message = "Successfully added a book.";
+                return message;
             }
-            if (composite.BoolValue)
-            {
-                composite.StringValue += "Suffix";
-            }
-            return composite;
         }
     }
 }
