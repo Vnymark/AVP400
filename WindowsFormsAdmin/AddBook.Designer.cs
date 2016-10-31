@@ -149,7 +149,7 @@
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.Name = "AddBook";
-            this.Text = "AddBook";
+            this.Text = "Add Book";
             this.ResumeLayout(false);
             this.PerformLayout();
 
