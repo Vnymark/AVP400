@@ -54,7 +54,7 @@ namespace WcfService
                 catch (Exception)
                 {
                     message = "Could not add book.";
-                    throw;
+                    
                 }
                 return message;
             }
