@@ -42,6 +42,7 @@ namespace WcfService
                 try
                 {
                     Book newBook = new Book();
+                   
                     newBook.Name = name;
                     newBook.Description = description;
                     newBook.URL = url;
