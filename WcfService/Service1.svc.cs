@@ -85,6 +85,7 @@ namespace WcfService
                             message = "Could not edit book.";
                             throw;
                         }
+                        break;
                     }
                     else
                     {
@@ -116,6 +117,7 @@ namespace WcfService
                             message = "Could not delete book.";
                             throw;
                         }
+                        break;
                     }
                     else
                     {

@@ -44,27 +44,18 @@ namespace WindowsFormsAdmin
             sText1 = textBox1.Text;
             sText2 = textBox2.Text;
             sText3 = textBox3.Text;
-            if (textBox4.Text != null)
+            try
             {
-                try
-                {
-                    iText4 = Int16.Parse(textBox4.Text);
-                    short a = iText4;
-                    
-                }
-                catch (Exception)
-                {
-                    sMessage = "Couldn't parse successfully.";
-
-                }
+                iText4 = short.Parse(textBox4.Text);
             }
-            else
+            catch (Exception)
             {
-                iText4 = 1;
+                sMessage = "Couldn't parse the visibility successfully.";
             }
+            
             ServiceReference.Service1Client Client = new ServiceReference.Service1Client();
             sMessage = Client.AddBook(sText1, sText2, sText3, iText4);
-            MessageBox.Show(sMessage;)
+            MessageBox.Show(sMessage);
         }
     }
 }

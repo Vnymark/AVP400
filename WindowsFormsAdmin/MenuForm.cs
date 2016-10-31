@@ -19,7 +19,8 @@ namespace WindowsFormsAdmin
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            ViewBooks myForm = new ViewBooks();
+            myForm.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -30,12 +31,14 @@ namespace WindowsFormsAdmin
 
         private void button3_Click(object sender, EventArgs e)
         {
-
+            ViewBooks myForm = new ViewBooks();
+            myForm.Show();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-
+            AddBook myForm = new AddBook();
+            myForm.Show();
         }
     }
 }

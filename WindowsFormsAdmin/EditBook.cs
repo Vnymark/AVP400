@@ -12,41 +12,64 @@ namespace WindowsFormsAdmin
 {
     public partial class EditBook : Form
     {
+        int iId;
+        short iText4;
+        string sText1 = "", sText2 = "", sText3 = "", sMessage;
         public EditBook()
         {
             InitializeComponent();
         }
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox5_TextChanged(object sender, EventArgs e)
         {
 
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            sText1 = textBox1.Text;
-            sText2 = textBox2.Text;
-            sText3 = textBox3.Text;
-            if (textBox4.Text != null)
+            try
             {
-                try
-                {
-                    iText4 = Int16.Parse(textBox4.Text);
-                    short a = iText4;
-
-                }
-                catch (Exception)
-                {
-                    sMessage = "Couldn't parse successfully.";
-
-                }
+                iId = Int16.Parse(textBox1.Text);
             }
-            else
+            catch (Exception)
             {
-                iText4 = 1;
+                sMessage = "Couldn't parse the id successfully.";
             }
+            sText1 = textBox2.Text;
+            sText2 = textBox3.Text;
+            sText3 = textBox4.Text;
+            try
+            {
+                iText4 = short.Parse(textBox5.Text);
+                    
+            }
+            catch (Exception)
+            {
+                sMessage = "Couldn't parse the visibility successfully.";
+            }
+
             ServiceReference.Service1Client Client = new ServiceReference.Service1Client();
-            sMessage = Client.AddBook(sText1, sText2, sText3, iText4);
+            sMessage = Client.EditBook(iId, sText1, sText2, sText3, iText4);
             MessageBox.Show(sMessage);
         }
     }
