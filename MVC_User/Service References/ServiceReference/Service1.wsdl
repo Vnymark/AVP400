@@ -31,6 +31,30 @@
   <wsdl:message name="IService1_DeleteBook_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeleteBookResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_GetAuthor_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAuthor" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetAuthor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAuthorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddAuthor_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddAuthor" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddAuthor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddAuthorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_EditAuthor_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditAuthor" />
+  </wsdl:message>
+  <wsdl:message name="IService1_EditAuthor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditAuthorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DeleteAuthor_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAuthor" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DeleteAuthor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAuthorResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="GetBooks">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetBooks" message="tns:IService1_GetBooks_InputMessage" />
@@ -47,6 +71,22 @@
     <wsdl:operation name="DeleteBook">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/DeleteBook" message="tns:IService1_DeleteBook_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/DeleteBookResponse" message="tns:IService1_DeleteBook_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAuthor">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetAuthor" message="tns:IService1_GetAuthor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetAuthorResponse" message="tns:IService1_GetAuthor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddAuthor">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AddAuthor" message="tns:IService1_AddAuthor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AddAuthorResponse" message="tns:IService1_AddAuthor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditAuthor">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/EditAuthor" message="tns:IService1_EditAuthor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/EditAuthorResponse" message="tns:IService1_EditAuthor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAuthor">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/DeleteAuthor" message="tns:IService1_DeleteAuthor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/DeleteAuthorResponse" message="tns:IService1_DeleteAuthor_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -80,6 +120,42 @@
     </wsdl:operation>
     <wsdl:operation name="DeleteBook">
       <soap:operation soapAction="http://tempuri.org/IService1/DeleteBook" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAuthor">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetAuthor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddAuthor">
+      <soap:operation soapAction="http://tempuri.org/IService1/AddAuthor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditAuthor">
+      <soap:operation soapAction="http://tempuri.org/IService1/EditAuthor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAuthor">
+      <soap:operation soapAction="http://tempuri.org/IService1/DeleteAuthor" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

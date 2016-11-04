@@ -9,146 +9,59 @@
 //------------------------------------------------------------------------------
 
 namespace MVC_User.ServiceReference {
-    using System.Runtime.Serialization;
-    using System;
     
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Book", Namespace="http://schemas.datacontract.org/2004/07/WcfService")]
-    [System.SerializableAttribute()]
-    public partial class Book : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string DescriptionField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string URLField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<short> VisabilityField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Description {
-            get {
-                return this.DescriptionField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
-                    this.DescriptionField = value;
-                    this.RaisePropertyChanged("Description");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Name {
-            get {
-                return this.NameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NameField, value) != true)) {
-                    this.NameField = value;
-                    this.RaisePropertyChanged("Name");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string URL {
-            get {
-                return this.URLField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.URLField, value) != true)) {
-                    this.URLField = value;
-                    this.RaisePropertyChanged("URL");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<short> Visability {
-            get {
-                return this.VisabilityField;
-            }
-            set {
-                if ((this.VisabilityField.Equals(value) != true)) {
-                    this.VisabilityField = value;
-                    this.RaisePropertyChanged("Visability");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference.IService1")]
     public interface IService1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetBooks", ReplyAction="http://tempuri.org/IService1/GetBooksResponse")]
-        MVC_User.ServiceReference.Book[] GetBooks();
+        WcfService.Book[] GetBooks();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetBooks", ReplyAction="http://tempuri.org/IService1/GetBooksResponse")]
-        System.Threading.Tasks.Task<MVC_User.ServiceReference.Book[]> GetBooksAsync();
+        System.Threading.Tasks.Task<WcfService.Book[]> GetBooksAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddBook", ReplyAction="http://tempuri.org/IService1/AddBookResponse")]
-        string AddBook(string name, string description, string url, short visability);
+        string AddBook(string name, string description, string url, short visability, int author);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddBook", ReplyAction="http://tempuri.org/IService1/AddBookResponse")]
-        System.Threading.Tasks.Task<string> AddBookAsync(string name, string description, string url, short visability);
+        System.Threading.Tasks.Task<string> AddBookAsync(string name, string description, string url, short visability, int author);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/EditBook", ReplyAction="http://tempuri.org/IService1/EditBookResponse")]
-        string EditBook(int id, string name, string description, string url, short visability);
+        string EditBook(int id, string name, string description, string url, short visability, int author);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/EditBook", ReplyAction="http://tempuri.org/IService1/EditBookResponse")]
-        System.Threading.Tasks.Task<string> EditBookAsync(int id, string name, string description, string url, short visability);
+        System.Threading.Tasks.Task<string> EditBookAsync(int id, string name, string description, string url, short visability, int author);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeleteBook", ReplyAction="http://tempuri.org/IService1/DeleteBookResponse")]
         string DeleteBook(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeleteBook", ReplyAction="http://tempuri.org/IService1/DeleteBookResponse")]
         System.Threading.Tasks.Task<string> DeleteBookAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAuthor", ReplyAction="http://tempuri.org/IService1/GetAuthorResponse")]
+        WcfService.Author[] GetAuthor();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAuthor", ReplyAction="http://tempuri.org/IService1/GetAuthorResponse")]
+        System.Threading.Tasks.Task<WcfService.Author[]> GetAuthorAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddAuthor", ReplyAction="http://tempuri.org/IService1/AddAuthorResponse")]
+        string AddAuthor(string name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddAuthor", ReplyAction="http://tempuri.org/IService1/AddAuthorResponse")]
+        System.Threading.Tasks.Task<string> AddAuthorAsync(string name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/EditAuthor", ReplyAction="http://tempuri.org/IService1/EditAuthorResponse")]
+        string EditAuthor(int id, string name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/EditAuthor", ReplyAction="http://tempuri.org/IService1/EditAuthorResponse")]
+        System.Threading.Tasks.Task<string> EditAuthorAsync(int id, string name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeleteAuthor", ReplyAction="http://tempuri.org/IService1/DeleteAuthorResponse")]
+        string DeleteAuthor(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeleteAuthor", ReplyAction="http://tempuri.org/IService1/DeleteAuthorResponse")]
+        System.Threading.Tasks.Task<string> DeleteAuthorAsync(int id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -178,28 +91,28 @@ namespace MVC_User.ServiceReference {
                 base(binding, remoteAddress) {
         }
         
-        public MVC_User.ServiceReference.Book[] GetBooks() {
+        public WcfService.Book[] GetBooks() {
             return base.Channel.GetBooks();
         }
         
-        public System.Threading.Tasks.Task<MVC_User.ServiceReference.Book[]> GetBooksAsync() {
+        public System.Threading.Tasks.Task<WcfService.Book[]> GetBooksAsync() {
             return base.Channel.GetBooksAsync();
         }
         
-        public string AddBook(string name, string description, string url, short visability) {
-            return base.Channel.AddBook(name, description, url, visability);
+        public string AddBook(string name, string description, string url, short visability, int author) {
+            return base.Channel.AddBook(name, description, url, visability, author);
         }
         
-        public System.Threading.Tasks.Task<string> AddBookAsync(string name, string description, string url, short visability) {
-            return base.Channel.AddBookAsync(name, description, url, visability);
+        public System.Threading.Tasks.Task<string> AddBookAsync(string name, string description, string url, short visability, int author) {
+            return base.Channel.AddBookAsync(name, description, url, visability, author);
         }
         
-        public string EditBook(int id, string name, string description, string url, short visability) {
-            return base.Channel.EditBook(id, name, description, url, visability);
+        public string EditBook(int id, string name, string description, string url, short visability, int author) {
+            return base.Channel.EditBook(id, name, description, url, visability, author);
         }
         
-        public System.Threading.Tasks.Task<string> EditBookAsync(int id, string name, string description, string url, short visability) {
-            return base.Channel.EditBookAsync(id, name, description, url, visability);
+        public System.Threading.Tasks.Task<string> EditBookAsync(int id, string name, string description, string url, short visability, int author) {
+            return base.Channel.EditBookAsync(id, name, description, url, visability, author);
         }
         
         public string DeleteBook(int id) {
@@ -208,6 +121,38 @@ namespace MVC_User.ServiceReference {
         
         public System.Threading.Tasks.Task<string> DeleteBookAsync(int id) {
             return base.Channel.DeleteBookAsync(id);
+        }
+        
+        public WcfService.Author[] GetAuthor() {
+            return base.Channel.GetAuthor();
+        }
+        
+        public System.Threading.Tasks.Task<WcfService.Author[]> GetAuthorAsync() {
+            return base.Channel.GetAuthorAsync();
+        }
+        
+        public string AddAuthor(string name) {
+            return base.Channel.AddAuthor(name);
+        }
+        
+        public System.Threading.Tasks.Task<string> AddAuthorAsync(string name) {
+            return base.Channel.AddAuthorAsync(name);
+        }
+        
+        public string EditAuthor(int id, string name) {
+            return base.Channel.EditAuthor(id, name);
+        }
+        
+        public System.Threading.Tasks.Task<string> EditAuthorAsync(int id, string name) {
+            return base.Channel.EditAuthorAsync(id, name);
+        }
+        
+        public string DeleteAuthor(int id) {
+            return base.Channel.DeleteAuthor(id);
+        }
+        
+        public System.Threading.Tasks.Task<string> DeleteAuthorAsync(int id) {
+            return base.Channel.DeleteAuthorAsync(id);
         }
     }
 }

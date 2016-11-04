@@ -8,5 +8,6 @@ namespace MVC_User.Models
 {
     class BookClass
     {
+       
     }
 }
