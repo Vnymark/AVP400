@@ -17,13 +17,25 @@ namespace WcfService
         Book[] GetBooks();
 
         [OperationContract]
-        string AddBook(string name, string description, string url, short visability);
+        string AddBook(string name, string description, string url, short visability, int author);
 
         [OperationContract]
-        string EditBook(int id, string name, string description, string url, short visability);
+        string EditBook(int id, string name, string description, string url, short visability, int author);
 
         [OperationContract]
         string DeleteBook(int id);
+
+        [OperationContract]
+        Author[] GetAuthor();
+
+        [OperationContract]
+        string AddAuthor(string name);
+
+        [OperationContract]
+        string EditAuthor(int id, string name);
+
+        [OperationContract]
+        string DeleteAuthor(int id);
 
         // TODO: Add your service operations here
     }

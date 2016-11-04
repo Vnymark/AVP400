@@ -12,15 +12,18 @@ namespace WcfService
     using System;
     using System.Collections.Generic;
     
-    public partial class Book
+    public partial class Author
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Author()
+        {
+            this.Book = new HashSet<Book>();
+        }
+    
         public int Id { get; set; }
         public string Name { get; set; }
-        public string Description { get; set; }
-        public string URL { get; set; }
-        public Nullable<short> Visability { get; set; }
-        public Nullable<int> AuthorId { get; set; }
     
-        public virtual Author Author { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Book> Book { get; set; }
     }
 }

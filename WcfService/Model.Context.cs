@@ -13,10 +13,10 @@ namespace WcfService
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class DatabaseEntities : DbContext
+    public partial class DB_connection : DbContext
     {
-        public DatabaseEntities()
-            : base("name=DatabaseEntities")
+        public DB_connection()
+            : base("name=DB_connection")
         {
         }
     
@@ -25,6 +25,7 @@ namespace WcfService
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Author> Author { get; set; }
         public virtual DbSet<Book> Book { get; set; }
     }
 }

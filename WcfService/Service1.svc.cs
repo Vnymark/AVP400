@@ -17,7 +17,7 @@ namespace WcfService
         public Book[] GetBooks()
         {
             List<Book> ListBooks = new List<Book>();
-            using (DatabaseEntities db = new DatabaseEntities())
+            using (DB_connection db = new DB_connection())
             {
                 var dbBookList = db.Book.ToList();
                 foreach (var rowInDatabase in dbBookList)
@@ -28,16 +28,17 @@ namespace WcfService
                     newBook.Description = rowInDatabase.Description;
                     newBook.URL = rowInDatabase.URL;
                     newBook.Visability = rowInDatabase.Visability;
+                    newBook.AuthorId = rowInDatabase.AuthorId;
                     ListBooks.Add(newBook);
                 }
             }
             return ListBooks.ToArray();
         }
 
-        public string AddBook(string name, string description, string url, short visability)
+        public string AddBook(string name, string description, string url, short visability, int author)
         {
             string message = "";
-            using (DatabaseEntities db = new DatabaseEntities())
+            using (DB_connection db = new DB_connection())
             {
                 try
                 {
@@ -47,6 +48,7 @@ namespace WcfService
                     newBook.Description = description;
                     newBook.URL = url;
                     newBook.Visability = visability;
+                    newBook.AuthorId = author;
                     db.Book.Add(newBook);
                     db.SaveChanges();
                     message = "Book added successfully.";
@@ -61,10 +63,10 @@ namespace WcfService
             }
         }
 
-        public string EditBook(int id, string name, string description, string url, short visability)
+        public string EditBook(int id, string name, string description, string url, short visability, int author)
         {
             string message = "";
-            using (DatabaseEntities db = new DatabaseEntities())
+            using (DB_connection db = new DB_connection())
             {
                 var dbBookList = db.Book.ToList();
                 foreach (var rowInDatabase in dbBookList)
@@ -77,6 +79,7 @@ namespace WcfService
                             rowInDatabase.Description = description;
                             rowInDatabase.URL = url;
                             rowInDatabase.Visability = visability;
+                            rowInDatabase.AuthorId = author;
                             db.SaveChanges();
                             message = "Book edited successfully.";
                         }
@@ -99,7 +102,7 @@ namespace WcfService
         public string DeleteBook(int id)
         {
             string message = "";
-            using (DatabaseEntities db = new DatabaseEntities())
+            using (DB_connection db = new DB_connection())
             {
                 var dbBookList = db.Book.ToList();
                 foreach (var rowInDatabase in dbBookList)
@@ -122,6 +125,109 @@ namespace WcfService
                     else
                     {
                         message = "That book does not exist.";
+                    }
+                }
+                return message;
+            }
+        }
+
+        public Author[] GetAuthor()
+        {
+            List<Author> ListAuthor = new List<Author>();
+            using (DB_connection db = new DB_connection())
+            {
+                var dbAuthorList = db.Author.ToList();
+                foreach (var rowInDatabase in dbAuthorList)
+                {
+                    Author newAuthor = new Author();
+                    newAuthor.Id = rowInDatabase.Id;
+                    newAuthor.Name = rowInDatabase.Name;
+                    ListAuthor.Add(newAuthor);
+                }
+            }
+            return ListAuthor.ToArray();
+        }
+
+        public string AddAuthor(string name)
+        {
+            string message = "";
+            using (DB_connection db = new DB_connection())
+            {
+                try
+                {
+                    Author newAuthor = new Author();
+                    newAuthor.Name = name;
+                    db.Author.Add(newAuthor);
+                    db.SaveChanges();
+                    message = "Author added successfully.";
+                }
+                catch (Exception)
+                {
+                    message = "Could not add author.";
+
+                }
+                return message;
+            }
+        }
+
+        public string EditAuthor(int id, string name)
+        {
+            string message = "";
+            using (DB_connection db = new DB_connection())
+            {
+                var dbAuthorList = db.Author.ToList();
+                foreach (var rowInDatabase in dbAuthorList)
+                {
+                    if (rowInDatabase.Id == id)
+                    {
+                        try
+                        {
+                            rowInDatabase.Name = name;
+                            db.SaveChanges();
+                            message = "Author edited successfully.";
+                        }
+                        catch (Exception)
+                        {
+                            message = "Could not edit author.";
+                            
+                        }
+                        break;
+                    }
+                    else
+                    {
+                        message = "That author does not exist.";
+                    }
+                }
+                return message;
+            }
+        }
+
+        public string DeleteAuthor(int id)
+        {
+            string message = "";
+            using (DB_connection db = new DB_connection())
+            {
+                var dbAuthorList = db.Author.ToList();
+                foreach (var rowInDatabase in dbAuthorList)
+                {
+                    if (rowInDatabase.Id == id)
+                    {
+                        try
+                        {
+                            db.Author.Remove(rowInDatabase);
+                            db.SaveChanges();
+                            message = "Author deleted successfully.";
+                        }
+                        catch (Exception)
+                        {
+                            message = "Could not delete author.";
+                            throw;
+                        }
+                        break;
+                    }
+                    else
+                    {
+                        message = "That author does not exist.";
                     }
                 }
                 return message;
