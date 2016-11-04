@@ -37,6 +37,9 @@ namespace WcfService
         [OperationContract]
         string DeleteAuthor(int id);
 
+        [OperationContract]
+        BookAuthor[] GetBookAuthor();
+
         // TODO: Add your service operations here
     }
 

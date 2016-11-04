@@ -233,5 +233,44 @@ namespace WcfService
                 return message;
             }
         }
+
+        public BookAuthor[] GetBookAuthor()
+        {
+            List<BookAuthor> ListBooks = new List<BookAuthor>();
+            using (DB_connection db = new DB_connection())
+            {
+                var dbBookList = db.Book.ToList();
+                foreach (var rowInDatabase in dbBookList)
+                {
+                    BookAuthor newBook = new BookAuthor();
+                    newBook.Id = rowInDatabase.Id;
+                    newBook.Name = rowInDatabase.Name;
+                    newBook.Description = rowInDatabase.Description;
+                    newBook.URL = rowInDatabase.URL;
+                    newBook.Visability = rowInDatabase.Visability;
+                    newBook.AuthorName = getAuthorName(rowInDatabase.AuthorId);
+                   
+                    ListBooks.Add(newBook);
+                }
+            }
+            return ListBooks.ToArray();
+        }
+        string getAuthorName(int? id)
+        {
+            string AuthorName = "";
+            using (DB_connection db = new DB_connection())
+            {
+                var dbAuthorList = db.Author.ToList();
+                foreach (var rowInDatabase in dbAuthorList)
+                {
+                    if(rowInDatabase.Id == id)
+                    {
+                        AuthorName = rowInDatabase.Name;
+                    }
+                    break;
+                }
+            }
+            return AuthorName;
+        }
     }
 }

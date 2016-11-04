@@ -62,6 +62,12 @@ namespace MVC_User.ServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeleteAuthor", ReplyAction="http://tempuri.org/IService1/DeleteAuthorResponse")]
         System.Threading.Tasks.Task<string> DeleteAuthorAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetBookAuthor", ReplyAction="http://tempuri.org/IService1/GetBookAuthorResponse")]
+        WcfService.BookAuthor[] GetBookAuthor();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetBookAuthor", ReplyAction="http://tempuri.org/IService1/GetBookAuthorResponse")]
+        System.Threading.Tasks.Task<WcfService.BookAuthor[]> GetBookAuthorAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -153,6 +159,14 @@ namespace MVC_User.ServiceReference {
         
         public System.Threading.Tasks.Task<string> DeleteAuthorAsync(int id) {
             return base.Channel.DeleteAuthorAsync(id);
+        }
+        
+        public WcfService.BookAuthor[] GetBookAuthor() {
+            return base.Channel.GetBookAuthor();
+        }
+        
+        public System.Threading.Tasks.Task<WcfService.BookAuthor[]> GetBookAuthorAsync() {
+            return base.Channel.GetBookAuthorAsync();
         }
     }
 }

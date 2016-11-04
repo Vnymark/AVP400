@@ -21,9 +21,11 @@ namespace MVC_User.Controllers
         public ActionResult Books()
         {
             ServiceReference.Service1Client Client = new ServiceReference.Service1Client();
-            List<WcfService.Book> Books = Client.GetBooks().ToList();
-            
-            return View(Books);
+            MasterViewModel mymodel = new MasterViewModel();
+            mymodel.allAuthors = Client.GetAuthor();
+            mymodel.allBooks = Client.GetBooks();
+            mymodel.BookAuthor = Client.GetBookAuthor();
+            return View(mymodel);
 
         }
 
@@ -33,6 +35,7 @@ namespace MVC_User.Controllers
             MasterViewModel mymodel = new MasterViewModel();
             mymodel.allAuthors = Client.GetAuthor();
             mymodel.allBooks = Client.GetBooks();
+            mymodel.BookAuthor = Client.GetBookAuthor();
             return View(mymodel);
         }
     }
