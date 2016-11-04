@@ -1,68 +1,37 @@
 ﻿@using WcfService;
-@*@model MasterViewModel*@
-@{
-    ViewBag.Title = "Test";
-}
+@{ViewBag.Title = "Test";}
 
 <h2>Books</h2>
-
 <table class="table">
     <tr>
-        <th>
-           Name
-        </th>
-        <th>
-            Description
-        </th>
-        <th>
-            URL
-        </th>
-        <th>
-           Author
-        </th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>URL</th>
+        <th>Author</th>
     </tr>
-    
+
     @foreach (Book Book in Model.allBooks)
-       
+        
     {
         if (Book.Visability == 1)
         {
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => Book.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => Book.Description)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => Book.URL)
-                </td>
-                <td> 
-                    @Html.DisplayFor(modelItem => Book.Author.Name)
-                </td>
+                <td>@Html.DisplayFor(modelItem => Book.Name)</td>
+                <td>@Html.DisplayFor(modelItem => Book.Description)</td>
+                <td>@Html.DisplayFor(modelItem => Book.URL)</td>
+                <td>@Html.DisplayFor(modelItem => Book.Author.Name)</td>
             </tr>
         }
         else { }
     }
+
     @foreach (Author Author in Model.allAuthors)
-
     {
-        
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => Author.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => Author.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => Author.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => Author.Name)
-                </td>
+                <td>@Html.DisplayFor(modelItem => Author.Name)</td>
+                <td>@Html.DisplayFor(modelItem => Author.Name)</td>
+                <td>@Html.DisplayFor(modelItem => Author.Name)</td>
+                <td>@Html.DisplayFor(modelItem => Author.Name)</td>
             </tr>
-        
     }
-
 </table>
