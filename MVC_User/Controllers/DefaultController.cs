@@ -22,21 +22,21 @@ namespace MVC_User.Controllers
         {
             ServiceReference.Service1Client Client = new ServiceReference.Service1Client();
             MasterViewModel mymodel = new MasterViewModel();
-            mymodel.allAuthors = Client.GetAuthor();
-            mymodel.allBooks = Client.GetBooks();
+            //mymodel.allAuthors = Client.GetAuthor();
+            //mymodel.allBooks = Client.GetBooks();
             mymodel.BookAuthor = Client.GetBookAuthor();
             return View(mymodel);
 
         }
 
-        public ActionResult Test()
-        {
-            ServiceReference.Service1Client Client = new ServiceReference.Service1Client();
-            MasterViewModel mymodel = new MasterViewModel();
-            mymodel.allAuthors = Client.GetAuthor();
-            mymodel.allBooks = Client.GetBooks();
-            mymodel.BookAuthor = Client.GetBookAuthor();
-            return View(mymodel);
-        }
+        //public ActionResult Test()
+        //{
+        //    ServiceReference.Service1Client Client = new ServiceReference.Service1Client();
+        //    MasterViewModel mymodel = new MasterViewModel();
+        //    mymodel.allAuthors = Client.GetAuthor();
+        //    mymodel.allBooks = Client.GetBooks();
+        //    mymodel.BookAuthor = Client.GetBookAuthor();
+        //    return View(mymodel);
+        //}
     }
 }
