@@ -15,28 +15,17 @@ namespace MVC_User.Controllers
         // GET: Default
         public ActionResult Index()
         {
-            return View();
+            ServiceReference.Service1Client Client = new ServiceReference.Service1Client();
+            MasterViewModel mymodel = new MasterViewModel();
+            mymodel.BookAuthor = Client.GetBookAuthor();
+            return View(mymodel);
         }
-
         public ActionResult Books()
         {
             ServiceReference.Service1Client Client = new ServiceReference.Service1Client();
             MasterViewModel mymodel = new MasterViewModel();
-            //mymodel.allAuthors = Client.GetAuthor();
-            //mymodel.allBooks = Client.GetBooks();
             mymodel.BookAuthor = Client.GetBookAuthor();
             return View(mymodel);
-
         }
-
-        //public ActionResult Test()
-        //{
-        //    ServiceReference.Service1Client Client = new ServiceReference.Service1Client();
-        //    MasterViewModel mymodel = new MasterViewModel();
-        //    mymodel.allAuthors = Client.GetAuthor();
-        //    mymodel.allBooks = Client.GetBooks();
-        //    mymodel.BookAuthor = Client.GetBookAuthor();
-        //    return View(mymodel);
-        //}
     }
 }

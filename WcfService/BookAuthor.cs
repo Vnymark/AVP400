@@ -17,6 +17,5 @@ namespace WcfService
         public string URL { get; set; }
         public Nullable<short> Visability { get; set; }
         public string AuthorName { get; set; }
-        
     }
 }

@@ -10,9 +10,6 @@ namespace MVC_User.ViewModels
 {
     public class MasterViewModel
     {
-        //public IEnumerable<Author> allAuthors { get; set; }
-        //public IEnumerable<Book> allBooks { get; set; }
-
         public IEnumerable<BookAuthor> BookAuthor { get; set; }
     }
 }
