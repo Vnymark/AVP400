@@ -14,7 +14,7 @@ namespace WindowsFormsAdmin
     {
         int iAuthor;
         short iText4;
-        string sText1 = "", sText2 = "", sText3 = "", sMessage;
+        string sMessage;
         public AddBook()
         {
             InitializeComponent();
@@ -47,9 +47,6 @@ namespace WindowsFormsAdmin
 
         private void button1_Click(object sender, EventArgs e)
         {
-            sText1 = textBox1.Text;
-            sText2 = textBox2.Text;
-            sText3 = textBox3.Text;
             try
             {
                 iText4 = short.Parse(textBox4.Text);
@@ -60,14 +57,14 @@ namespace WindowsFormsAdmin
             }
             try
             {
-                iAuthor = Int16.Parse(textBox5.Text);
+                iAuthor = int.Parse(textBox5.Text);
             }
             catch (Exception)
             {
                 sMessage = "Couldn't parse the author successfully.";
             }
             ServiceReference.Service1Client Client = new ServiceReference.Service1Client();
-            sMessage = Client.AddBook(sText1, sText2, sText3, iText4, iAuthor);
+            sMessage = Client.AddBook(textBox1.Text, textBox2.Text, textBox3.Text, iText4, iAuthor);
             MessageBox.Show(sMessage);
         }
     }

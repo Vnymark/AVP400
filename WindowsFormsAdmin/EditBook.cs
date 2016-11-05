@@ -14,7 +14,7 @@ namespace WindowsFormsAdmin
     {
         int iId, iAuthor;
         short iText4;
-        string sText1 = "", sText2 = "", sText3 = "", sMessage;
+        string sMessage;
         public EditBook()
         {
             InitializeComponent();
@@ -70,13 +70,9 @@ namespace WindowsFormsAdmin
             {
                 sMessage = "Couldn't parse the id successfully.";
             }
-            sText1 = textBox2.Text;
-            sText2 = textBox3.Text;
-            sText3 = textBox4.Text;
             try
             {
                 iText4 = short.Parse(textBox5.Text);
-                    
             }
             catch (Exception)
             {
@@ -98,7 +94,7 @@ namespace WindowsFormsAdmin
             }
 
             ServiceReference.Service1Client Client = new ServiceReference.Service1Client();
-            sMessage = Client.EditBook(iId, sText1, sText2, sText3, iText4, iAuthor);
+            sMessage = Client.EditBook(iId, textBox2.Text, textBox3.Text, textBox4.Text, iText4, iAuthor);
             MessageBox.Show(sMessage);
         }
     }
