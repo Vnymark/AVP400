@@ -16,7 +16,7 @@ namespace WindowsFormsAdmin
         {
             InitializeComponent();
             ServiceReference.Service1Client Client = new ServiceReference.Service1Client();
-            List<ServiceReference.Book> Books = Client.GetBooks().ToList();
+            List<ServiceReference.BookAuthor> Books = Client.GetBookAuthor().ToList();
             dataGridView1.DataSource = Books;
             
         }

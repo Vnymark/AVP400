@@ -12,7 +12,7 @@ namespace WcfService
     // NOTE: In order to launch WCF Test Client for testing this service, please select Service1.svc or Service1.svc.cs at the Solution Explorer and start debugging.
     public class Service1 : IService1
     {
-        
+
         
         public Book[] GetBooks()
         {
@@ -43,7 +43,6 @@ namespace WcfService
                 try
                 {
                     Book newBook = new Book();
-                   
                     newBook.Name = name;
                     newBook.Description = description;
                     newBook.URL = url;
@@ -79,14 +78,19 @@ namespace WcfService
                             rowInDatabase.Description = description;
                             rowInDatabase.URL = url;
                             rowInDatabase.Visability = visability;
+                            if (author == 0) {
+                                rowInDatabase.AuthorId = null;
+                            }
+                            else { 
                             rowInDatabase.AuthorId = author;
+                            }
                             db.SaveChanges();
                             message = "Book edited successfully.";
                         }
                         catch (Exception)
                         {
                             message = "Could not edit book.";
-                            throw;
+                            
                         }
                         break;
                     }
@@ -201,7 +205,8 @@ namespace WcfService
                 return message;
             }
         }
-
+       
+    
         public string DeleteAuthor(int id)
         {
             string message = "";
@@ -249,13 +254,12 @@ namespace WcfService
                     newBook.URL = rowInDatabase.URL;
                     newBook.Visability = rowInDatabase.Visability;
                     newBook.AuthorName = getAuthorName(rowInDatabase.AuthorId);
-                   
                     ListBooks.Add(newBook);
                 }
             }
             return ListBooks.ToArray();
         }
-        string getAuthorName(int? id)
+        public string getAuthorName(int? id)
         {
             string AuthorName = "";
             using (DB_connection db = new DB_connection())
@@ -267,7 +271,6 @@ namespace WcfService
                     {
                         AuthorName = rowInDatabase.Name;
                     }
-                    break;
                 }
             }
             return AuthorName;

@@ -12,7 +12,7 @@ namespace WindowsFormsAdmin
 {
     public partial class EditBook : Form
     {
-        int iId;
+        int iId, iAuthor;
         short iText4;
         string sText1 = "", sText2 = "", sText3 = "", sMessage;
         public EditBook()
@@ -26,6 +26,21 @@ namespace WindowsFormsAdmin
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox6_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox6_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
         {
 
         }
@@ -67,9 +82,23 @@ namespace WindowsFormsAdmin
             {
                 sMessage = "Couldn't parse the visibility successfully.";
             }
+            if (textBox6.Text == null) {
+                iAuthor = 0;
+            }
+            else
+            {
+                try
+                {
+                    iAuthor = int.Parse(textBox6.Text);
+                }
+                catch (Exception)
+                {
+                    sMessage = "Couldn't parse the author successfully.";
+                }
+            }
 
             ServiceReference.Service1Client Client = new ServiceReference.Service1Client();
-            sMessage = Client.EditBook(iId, sText1, sText2, sText3, iText4);
+            sMessage = Client.EditBook(iId, sText1, sText2, sText3, iText4, iAuthor);
             MessageBox.Show(sMessage);
         }
     }

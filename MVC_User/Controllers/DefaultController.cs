@@ -12,14 +12,6 @@ namespace MVC_User.Controllers
 {
     public class DefaultController : Controller
     {
-        // GET: Default
-        public ActionResult Index()
-        {
-            ServiceReference.Service1Client Client = new ServiceReference.Service1Client();
-            MasterViewModel mymodel = new MasterViewModel();
-            mymodel.BookAuthor = Client.GetBookAuthor();
-            return View(mymodel);
-        }
         public ActionResult Books()
         {
             ServiceReference.Service1Client Client = new ServiceReference.Service1Client();

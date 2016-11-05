@@ -15,6 +15,8 @@ namespace WcfService
     
     public partial class DB_connection : DbContext
     {
+        
+
         public DB_connection()
             : base("name=DB_connection")
         {

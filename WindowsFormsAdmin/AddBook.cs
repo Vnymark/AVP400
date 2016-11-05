@@ -12,6 +12,7 @@ namespace WindowsFormsAdmin
 {
     public partial class AddBook : Form
     {
+        int iAuthor;
         short iText4;
         string sText1 = "", sText2 = "", sText3 = "", sMessage;
         public AddBook()
@@ -27,6 +28,11 @@ namespace WindowsFormsAdmin
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
            
+        }
+
+        private void textBox5_TextChanged(object sender, EventArgs e)
+        {
+
         }
 
         private void textBox3_TextChanged(object sender, EventArgs e)
@@ -52,9 +58,16 @@ namespace WindowsFormsAdmin
             {
                 sMessage = "Couldn't parse the visibility successfully.";
             }
-            
+            try
+            {
+                iAuthor = Int16.Parse(textBox5.Text);
+            }
+            catch (Exception)
+            {
+                sMessage = "Couldn't parse the author successfully.";
+            }
             ServiceReference.Service1Client Client = new ServiceReference.Service1Client();
-            sMessage = Client.AddBook(sText1, sText2, sText3, iText4);
+            sMessage = Client.AddBook(sText1, sText2, sText3, iText4, iAuthor);
             MessageBox.Show(sMessage);
         }
     }

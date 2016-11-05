@@ -30,14 +30,17 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.bookBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bookAuthorBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.uRLDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.visabilityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bookBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.AuthorName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bookBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bookAuthorBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -49,12 +52,22 @@
             this.nameDataGridViewTextBoxColumn,
             this.descriptionDataGridViewTextBoxColumn,
             this.uRLDataGridViewTextBoxColumn,
-            this.visabilityDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.bookBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(58, 51);
+            this.visabilityDataGridViewTextBoxColumn,
+            this.AuthorName});
+            this.dataGridView1.DataSource = this.bookAuthorBindingSource;
+            this.dataGridView1.Location = new System.Drawing.Point(12, 23);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(544, 375);
+            this.dataGridView1.Size = new System.Drawing.Size(630, 375);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // bookBindingSource
+            // 
+            this.bookBindingSource.DataSource = typeof(WindowsFormsAdmin.ServiceReference.Book);
+            this.bookBindingSource.CurrentChanged += new System.EventHandler(this.bookBindingSource_CurrentChanged);
+            // 
+            // bookAuthorBindingSource
+            // 
+            this.bookAuthorBindingSource.DataSource = typeof(WindowsFormsAdmin.ServiceReference.BookAuthor);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -86,10 +99,11 @@
             this.visabilityDataGridViewTextBoxColumn.HeaderText = "Visability";
             this.visabilityDataGridViewTextBoxColumn.Name = "visabilityDataGridViewTextBoxColumn";
             // 
-            // bookBindingSource
+            // AuthorName
             // 
-            this.bookBindingSource.DataSource = typeof(WindowsFormsAdmin.ServiceReference.Book);
-            this.bookBindingSource.CurrentChanged += new System.EventHandler(this.bookBindingSource_CurrentChanged);
+            this.AuthorName.DataPropertyName = "AuthorName";
+            this.AuthorName.HeaderText = "AuthorName";
+            this.AuthorName.Name = "AuthorName";
             // 
             // BookView
             // 
@@ -101,6 +115,7 @@
             this.Text = "BookView";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bookBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bookAuthorBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -108,11 +123,13 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.BindingSource bookBindingSource;
+        private System.Windows.Forms.BindingSource bookAuthorBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn uRLDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn visabilityDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource bookBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AuthorName;
     }
 }

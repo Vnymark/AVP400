@@ -48,6 +48,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddAuthor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddAuthor.Designer.cs">
+      <DependentUpon>AddAuthor.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddBook.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,11 +66,23 @@
     <Compile Include="BookView.Designer.cs">
       <DependentUpon>BookView.cs</DependentUpon>
     </Compile>
+    <Compile Include="DeleteAuthor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeleteAuthor.Designer.cs">
+      <DependentUpon>DeleteAuthor.cs</DependentUpon>
+    </Compile>
     <Compile Include="DeleteBook.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="DeleteBook.Designer.cs">
       <DependentUpon>DeleteBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditAuthor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditAuthor.Designer.cs">
+      <DependentUpon>EditAuthor.cs</DependentUpon>
     </Compile>
     <Compile Include="EditBook.cs">
       <SubType>Form</SubType>
@@ -96,14 +114,23 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddAuthor.resx">
+      <DependentUpon>AddAuthor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddBook.resx">
       <DependentUpon>AddBook.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BookView.resx">
       <DependentUpon>BookView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DeleteAuthor.resx">
+      <DependentUpon>DeleteAuthor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DeleteBook.resx">
       <DependentUpon>DeleteBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditAuthor.resx">
+      <DependentUpon>EditAuthor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EditBook.resx">
       <DependentUpon>EditBook.cs</DependentUpon>
@@ -155,7 +182,13 @@
     <None Include="Service References\ServiceReference\Service12.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\ServiceReference\WindowsFormsAdmin.ServiceReference.Author.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\ServiceReference\WindowsFormsAdmin.ServiceReference.Book.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceReference\WindowsFormsAdmin.ServiceReference.BookAuthor.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
   </ItemGroup>
