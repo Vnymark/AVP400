@@ -10,13 +10,13 @@
         <th>URL</th>
     </tr>
 
-    @foreach (BookAuthor BookAuthor in Model.BookAuthor)
+    @foreach (PublicBook PublicBook in Model.PublicBook)
     {
         <tr>
-            <td>@Html.DisplayFor(modelItem => BookAuthor.Name)</td>
-            <td>@Html.DisplayFor(modelItem => BookAuthor.AuthorName)</td>
-            <td>@Html.DisplayFor(modelItem => BookAuthor.Description)</td>
-            <td>@Html.DisplayFor(modelItem => BookAuthor.URL)</td>
+            <td>@Html.DisplayFor(modelItem => PublicBook.Name)</td>
+            <td>@Html.DisplayFor(modelItem => PublicBook.AuthorName)</td>
+            <td>@Html.DisplayFor(modelItem => PublicBook.Description)</td>
+            <td>@Html.DisplayFor(modelItem => PublicBook.URL)</td>
         </tr>
     }
 </table>

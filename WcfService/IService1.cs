@@ -39,7 +39,7 @@ namespace WcfService
         string DeleteAuthor(int id);
 
         [OperationContract]
-        BookAuthor[] GetBookAuthor();
+        PublicBook[] GetBookAuthor();
 
         [OperationContract]
         string GetAuthorName(int? id);

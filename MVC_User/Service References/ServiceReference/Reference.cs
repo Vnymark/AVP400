@@ -64,10 +64,10 @@ namespace MVC_User.ServiceReference {
         System.Threading.Tasks.Task<string> DeleteAuthorAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetBookAuthor", ReplyAction="http://tempuri.org/IService1/GetBookAuthorResponse")]
-        WcfService.BookAuthor[] GetBookAuthor();
+        WcfService.PublicBook[] GetBookAuthor();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetBookAuthor", ReplyAction="http://tempuri.org/IService1/GetBookAuthorResponse")]
-        System.Threading.Tasks.Task<WcfService.BookAuthor[]> GetBookAuthorAsync();
+        System.Threading.Tasks.Task<WcfService.PublicBook[]> GetBookAuthorAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAuthorName", ReplyAction="http://tempuri.org/IService1/GetAuthorNameResponse")]
         string GetAuthorName(System.Nullable<int> id);
@@ -173,11 +173,11 @@ namespace MVC_User.ServiceReference {
             return base.Channel.DeleteAuthorAsync(id);
         }
         
-        public WcfService.BookAuthor[] GetBookAuthor() {
+        public WcfService.PublicBook[] GetBookAuthor() {
             return base.Channel.GetBookAuthor();
         }
         
-        public System.Threading.Tasks.Task<WcfService.BookAuthor[]> GetBookAuthorAsync() {
+        public System.Threading.Tasks.Task<WcfService.PublicBook[]> GetBookAuthorAsync() {
             return base.Channel.GetBookAuthorAsync();
         }
         

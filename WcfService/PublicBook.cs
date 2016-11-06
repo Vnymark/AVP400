@@ -10,7 +10,7 @@ namespace WcfService
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
-    public partial class BookAuthor
+    public partial class PublicBook
     {
         public int Id { get; set; }
         public string Name { get; set; }

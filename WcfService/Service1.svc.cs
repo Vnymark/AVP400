@@ -262,9 +262,9 @@ namespace WcfService
             }
         }
 
-        public BookAuthor[] GetBookAuthor()
+        public PublicBook[] GetBookAuthor()
         {
-            List<BookAuthor> ListBooks = new List<BookAuthor>();
+            List<PublicBook> ListBooks = new List<PublicBook>();
             using (DB_connection db = new DB_connection())
             {
                 var dbBookList = db.Book.ToList();
@@ -272,7 +272,7 @@ namespace WcfService
                 {
                     if(rowInDatabase.Visability == 1)
                     { 
-                        BookAuthor newBook = new BookAuthor();
+                        PublicBook newBook = new PublicBook();
                         newBook.Id = rowInDatabase.Id;
                         newBook.Name = rowInDatabase.Name;
                         newBook.Description = rowInDatabase.Description;
