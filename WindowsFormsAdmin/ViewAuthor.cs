@@ -10,21 +10,21 @@ using System.Windows.Forms;
 
 namespace WindowsFormsAdmin
 {
-    public partial class BookView : Form
+    public partial class ViewAuthor : Form
     {
-        public BookView()
+        public ViewAuthor()
         {
             InitializeComponent();
             ServiceReference.Service1Client Client = new ServiceReference.Service1Client();
-            List<ServiceReference.BookAuthor> Books = Client.GetBookAuthor().ToList();
-            dataGridView1.DataSource = Books;
-            
+            List<ServiceReference.Author> Authors = Client.GetAuthor().ToList();
+            dataGridView1.DataSource = Authors;
+
         }
 
         private void bookBindingSource_CurrentChanged(object sender, EventArgs e)
         {
-            
+
         }
-        
+
     }
 }

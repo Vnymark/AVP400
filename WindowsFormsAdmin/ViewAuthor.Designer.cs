@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsAdmin
 {
-    partial class ViewBooks
+    partial class ViewAuthor
     {
         /// <summary>
         /// Required designer variable.
@@ -30,14 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.bookAuthorBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bookBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.uRLDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.visabilityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.authorIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bookAuthorBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bookBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,16 +45,16 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn,
-            this.nameDataGridViewTextBoxColumn,
-            this.descriptionDataGridViewTextBoxColumn,
-            this.uRLDataGridViewTextBoxColumn,
-            this.visabilityDataGridViewTextBoxColumn,
-            this.authorIdDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.bookBindingSource;
+            this.nameDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.bookAuthorBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(12, 23);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(630, 375);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // bookAuthorBindingSource
+            // 
+            this.bookAuthorBindingSource.DataSource = typeof(WindowsFormsAdmin.ServiceReference.BookAuthor);
             // 
             // bookBindingSource
             // 
@@ -75,39 +73,16 @@
             this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
             this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
             // 
-            // descriptionDataGridViewTextBoxColumn
-            // 
-            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
-            this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
-            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
-            // 
-            // uRLDataGridViewTextBoxColumn
-            // 
-            this.uRLDataGridViewTextBoxColumn.DataPropertyName = "URL";
-            this.uRLDataGridViewTextBoxColumn.HeaderText = "URL";
-            this.uRLDataGridViewTextBoxColumn.Name = "uRLDataGridViewTextBoxColumn";
-            // 
-            // visabilityDataGridViewTextBoxColumn
-            // 
-            this.visabilityDataGridViewTextBoxColumn.DataPropertyName = "Visability";
-            this.visabilityDataGridViewTextBoxColumn.HeaderText = "Visability";
-            this.visabilityDataGridViewTextBoxColumn.Name = "visabilityDataGridViewTextBoxColumn";
-            // 
-            // authorIdDataGridViewTextBoxColumn
-            // 
-            this.authorIdDataGridViewTextBoxColumn.DataPropertyName = "AuthorId";
-            this.authorIdDataGridViewTextBoxColumn.HeaderText = "AuthorId";
-            this.authorIdDataGridViewTextBoxColumn.Name = "authorIdDataGridViewTextBoxColumn";
-            // 
-            // ViewBooks
+            // ViewAuthor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(654, 543);
             this.Controls.Add(this.dataGridView1);
-            this.Name = "ViewBooks";
-            this.Text = "View Books";
+            this.Name = "ViewAuthor";
+            this.Text = "View Authors";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bookAuthorBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bookBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -117,11 +92,8 @@
 
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.BindingSource bookBindingSource;
+        private System.Windows.Forms.BindingSource bookAuthorBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn uRLDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn visabilityDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn authorIdDataGridViewTextBoxColumn;
     }
 }
