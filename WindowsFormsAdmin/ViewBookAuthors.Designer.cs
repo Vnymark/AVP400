@@ -30,15 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.bookAuthorBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.bookBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AuthorName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.uRLDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bookAuthorBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bookAuthorBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bookBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -56,26 +54,17 @@
             this.dataGridView1.Size = new System.Drawing.Size(630, 375);
             this.dataGridView1.TabIndex = 0;
             // 
-            // bookAuthorBindingSource
+            // AuthorName
             // 
-            this.bookAuthorBindingSource.DataSource = typeof(WindowsFormsAdmin.ServiceReference.BookAuthor);
-            // 
-            // bookBindingSource
-            // 
-            this.bookBindingSource.DataSource = typeof(WindowsFormsAdmin.ServiceReference.Book);
-            this.bookBindingSource.CurrentChanged += new System.EventHandler(this.bookBindingSource_CurrentChanged);
+            this.AuthorName.DataPropertyName = "AuthorName";
+            this.AuthorName.HeaderText = "AuthorName";
+            this.AuthorName.Name = "AuthorName";
             // 
             // nameDataGridViewTextBoxColumn
             // 
             this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
             this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
             this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            // 
-            // AuthorName
-            // 
-            this.AuthorName.DataPropertyName = "AuthorName";
-            this.AuthorName.HeaderText = "AuthorName";
-            this.AuthorName.Name = "AuthorName";
             // 
             // descriptionDataGridViewTextBoxColumn
             // 
@@ -89,6 +78,10 @@
             this.uRLDataGridViewTextBoxColumn.HeaderText = "URL";
             this.uRLDataGridViewTextBoxColumn.Name = "uRLDataGridViewTextBoxColumn";
             // 
+            // bookAuthorBindingSource
+            // 
+            this.bookAuthorBindingSource.DataSource = typeof(WindowsFormsAdmin.ServiceReference.BookAuthor);
+            // 
             // ViewBookAuthors
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -99,7 +92,6 @@
             this.Text = "View Books with Author";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bookAuthorBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bookBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -107,7 +99,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.BindingSource bookBindingSource;
         private System.Windows.Forms.BindingSource bookAuthorBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn AuthorName;

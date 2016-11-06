@@ -255,9 +255,6 @@ namespace WindowsFormsAdmin.ServiceReference {
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string URLField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<short> VisabilityField;
-        
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
             get {
@@ -333,19 +330,6 @@ namespace WindowsFormsAdmin.ServiceReference {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<short> Visability {
-            get {
-                return this.VisabilityField;
-            }
-            set {
-                if ((this.VisabilityField.Equals(value) != true)) {
-                    this.VisabilityField = value;
-                    this.RaisePropertyChanged("Visability");
-                }
-            }
-        }
-        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName) {
@@ -413,6 +397,18 @@ namespace WindowsFormsAdmin.ServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetBookAuthor", ReplyAction="http://tempuri.org/IService1/GetBookAuthorResponse")]
         System.Threading.Tasks.Task<WindowsFormsAdmin.ServiceReference.BookAuthor[]> GetBookAuthorAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAuthorName", ReplyAction="http://tempuri.org/IService1/GetAuthorNameResponse")]
+        string GetAuthorName(System.Nullable<int> id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAuthorName", ReplyAction="http://tempuri.org/IService1/GetAuthorNameResponse")]
+        System.Threading.Tasks.Task<string> GetAuthorNameAsync(System.Nullable<int> id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ImportFile", ReplyAction="http://tempuri.org/IService1/ImportFileResponse")]
+        void ImportFile();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ImportFile", ReplyAction="http://tempuri.org/IService1/ImportFileResponse")]
+        System.Threading.Tasks.Task ImportFileAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -512,6 +508,22 @@ namespace WindowsFormsAdmin.ServiceReference {
         
         public System.Threading.Tasks.Task<WindowsFormsAdmin.ServiceReference.BookAuthor[]> GetBookAuthorAsync() {
             return base.Channel.GetBookAuthorAsync();
+        }
+        
+        public string GetAuthorName(System.Nullable<int> id) {
+            return base.Channel.GetAuthorName(id);
+        }
+        
+        public System.Threading.Tasks.Task<string> GetAuthorNameAsync(System.Nullable<int> id) {
+            return base.Channel.GetAuthorNameAsync(id);
+        }
+        
+        public void ImportFile() {
+            base.Channel.ImportFile();
+        }
+        
+        public System.Threading.Tasks.Task ImportFileAsync() {
+            return base.Channel.ImportFileAsync();
         }
     }
 }

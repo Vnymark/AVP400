@@ -18,13 +18,11 @@ namespace WindowsFormsAdmin
             ServiceReference.Service1Client Client = new ServiceReference.Service1Client();
             List<ServiceReference.Author> Authors = Client.GetAuthor().ToList();
             dataGridView1.DataSource = Authors;
-
         }
 
-        private void bookBindingSource_CurrentChanged(object sender, EventArgs e)
+        private void AuthorBindingSource_CurrentChanged(object sender, EventArgs e)
         {
 
         }
-
     }
 }
