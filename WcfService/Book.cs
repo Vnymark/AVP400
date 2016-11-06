@@ -18,8 +18,8 @@ namespace WcfService
         public string Name { get; set; }
         public string Description { get; set; }
         public string URL { get; set; }
-        public Nullable<short> Visability { get; set; }
         public Nullable<int> AuthorId { get; set; }
+        public Nullable<short> Visibility { get; set; }
     
         public virtual Author Author { get; set; }
     }

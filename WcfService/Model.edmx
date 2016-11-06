@@ -20,10 +20,10 @@
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Description" Type="text" />
           <Property Name="URL" Type="text" />
-          <Property Name="Visability" Type="smallint" />
+          <Property Name="Visibility" Type="smallint" />
           <Property Name="AuthorId" Type="int" />
         </EntityType>
-        <Association Name="FK__Book__AuthorId__6E01572D">
+        <Association Name="FK__Book__AuthorId__02FC7413">
           <End Role="Author" Type="Self.Author" Multiplicity="0..1" />
           <End Role="Book" Type="Self.Book" Multiplicity="*" />
           <ReferentialConstraint>
@@ -38,7 +38,7 @@
         <EntityContainer Name="DB_ModelStoreContainer">
           <EntitySet Name="Author" EntityType="Self.Author" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Book" EntityType="Self.Book" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__Book__AuthorId__6E01572D" Association="Self.FK__Book__AuthorId__6E01572D">
+          <AssociationSet Name="FK__Book__AuthorId__02FC7413" Association="Self.FK__Book__AuthorId__02FC7413">
             <End Role="Author" EntitySet="Author" />
             <End Role="Book" EntitySet="Book" />
           </AssociationSet>
@@ -63,9 +63,9 @@
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="URL" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="Visability" Type="Int16" />
           <Property Name="AuthorId" Type="Int32" />
           <NavigationProperty Name="Author" Relationship="Self.FK_Book_Author" FromRole="Book" ToRole="Author" />
+          <Property Name="Visibility" Type="Int16" />
         </EntityType>
         <Association Name="FK_Book_Author">
           <End Role="Author" Type="Self.Author" Multiplicity="0..1" />
@@ -104,11 +104,11 @@
           <EntitySetMapping Name="Book">
             <EntityTypeMapping TypeName="DB_Model.Book">
               <MappingFragment StoreEntitySet="Book">
+                <ScalarProperty Name="Visibility" ColumnName="Visibility" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="URL" ColumnName="URL" />
-                <ScalarProperty Name="Visability" ColumnName="Visability" />
                 <ScalarProperty Name="AuthorId" ColumnName="AuthorId" />
               </MappingFragment>
             </EntityTypeMapping>

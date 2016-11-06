@@ -27,7 +27,7 @@ namespace WcfService
                     newBook.Name = rowInDatabase.Name;
                     newBook.Description = rowInDatabase.Description;
                     newBook.URL = rowInDatabase.URL;
-                    newBook.Visability = rowInDatabase.Visability;
+                    newBook.Visibility = rowInDatabase.Visibility;
                     newBook.AuthorId = rowInDatabase.AuthorId;
                     ListBooks.Add(newBook);
                 }
@@ -60,7 +60,7 @@ namespace WcfService
                         newBook.Name = name;
                         newBook.Description = description;
                         newBook.URL = url;
-                        newBook.Visability = visability;
+                        newBook.Visibility = visability;
                         newBook.AuthorId = author;
                         db.Book.Add(newBook);
                         db.SaveChanges();
@@ -93,7 +93,7 @@ namespace WcfService
                             rowInDatabase.Name = name;
                             rowInDatabase.Description = description;
                             rowInDatabase.URL = url;
-                            rowInDatabase.Visability = visability;
+                            rowInDatabase.Visibility = visability;
                             if (author == 0) {
                                 rowInDatabase.AuthorId = null;
                             }
@@ -288,7 +288,7 @@ namespace WcfService
                 var dbBookList = db.Book.ToList();
                 foreach (var rowInDatabase in dbBookList)
                 {
-                    if(rowInDatabase.Visability == 1)
+                    if(rowInDatabase.Visibility == 1)
                     { 
                         PublicBook newBook = new PublicBook();
                         newBook.Id = rowInDatabase.Id;
