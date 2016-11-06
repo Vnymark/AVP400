@@ -178,7 +178,13 @@
     <None Include="Service References\GridServiceReference\Service12.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\GridServiceReference\WindowsFormsAdmin.GridServiceReference.Author.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\GridServiceReference\WindowsFormsAdmin.GridServiceReference.Book.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\GridServiceReference\WindowsFormsAdmin.GridServiceReference.BookAuthor.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\ServiceReference\Service1.wsdl" />

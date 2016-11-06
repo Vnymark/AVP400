@@ -13,15 +13,15 @@
     @foreach (BookAuthor BookAuthor in Model.BookAuthor)
 
     {
-        if (BookAuthor.Visability == 1)
-        {
+        //if (BookAuthor.Visability == 1)
+        //{
             <tr>
                 <td>@Html.DisplayFor(modelItem => BookAuthor.Name)</td>
                 <td>@Html.DisplayFor(modelItem => BookAuthor.AuthorName)</td>
                 <td>@Html.DisplayFor(modelItem => BookAuthor.Description)</td>
                 <td>@Html.DisplayFor(modelItem => BookAuthor.URL)</td>
             </tr>
-        }
-        else { }
+        @*}
+        else { }*@
     }
 </table>

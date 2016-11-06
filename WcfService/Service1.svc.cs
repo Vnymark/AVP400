@@ -270,14 +270,16 @@ namespace WcfService
                 var dbBookList = db.Book.ToList();
                 foreach (var rowInDatabase in dbBookList)
                 {
-                    BookAuthor newBook = new BookAuthor();
-                    newBook.Id = rowInDatabase.Id;
-                    newBook.Name = rowInDatabase.Name;
-                    newBook.Description = rowInDatabase.Description;
-                    newBook.URL = rowInDatabase.URL;
-                    newBook.Visability = rowInDatabase.Visability;
-                    newBook.AuthorName = GetAuthorName(rowInDatabase.AuthorId);
-                    ListBooks.Add(newBook);
+                    if(rowInDatabase.Visability == 1)
+                    { 
+                        BookAuthor newBook = new BookAuthor();
+                        newBook.Id = rowInDatabase.Id;
+                        newBook.Name = rowInDatabase.Name;
+                        newBook.Description = rowInDatabase.Description;
+                        newBook.URL = rowInDatabase.URL;
+                        newBook.AuthorName = GetAuthorName(rowInDatabase.AuthorId);
+                        ListBooks.Add(newBook);
+                    }
                 }
             }
             return ListBooks.ToArray();
