@@ -68,6 +68,18 @@ namespace MVC_User.ServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetBookAuthor", ReplyAction="http://tempuri.org/IService1/GetBookAuthorResponse")]
         System.Threading.Tasks.Task<WcfService.BookAuthor[]> GetBookAuthorAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAuthorName", ReplyAction="http://tempuri.org/IService1/GetAuthorNameResponse")]
+        string GetAuthorName(System.Nullable<int> id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAuthorName", ReplyAction="http://tempuri.org/IService1/GetAuthorNameResponse")]
+        System.Threading.Tasks.Task<string> GetAuthorNameAsync(System.Nullable<int> id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ImportFile", ReplyAction="http://tempuri.org/IService1/ImportFileResponse")]
+        void ImportFile();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ImportFile", ReplyAction="http://tempuri.org/IService1/ImportFileResponse")]
+        System.Threading.Tasks.Task ImportFileAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -167,6 +179,22 @@ namespace MVC_User.ServiceReference {
         
         public System.Threading.Tasks.Task<WcfService.BookAuthor[]> GetBookAuthorAsync() {
             return base.Channel.GetBookAuthorAsync();
+        }
+        
+        public string GetAuthorName(System.Nullable<int> id) {
+            return base.Channel.GetAuthorName(id);
+        }
+        
+        public System.Threading.Tasks.Task<string> GetAuthorNameAsync(System.Nullable<int> id) {
+            return base.Channel.GetAuthorNameAsync(id);
+        }
+        
+        public void ImportFile() {
+            base.Channel.ImportFile();
+        }
+        
+        public System.Threading.Tasks.Task ImportFileAsync() {
+            return base.Channel.ImportFileAsync();
         }
     }
 }

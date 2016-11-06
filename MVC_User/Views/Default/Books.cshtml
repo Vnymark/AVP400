@@ -5,9 +5,9 @@
 <table class="table">
     <tr>
         <th>Name</th>
+        <th>Author</th>
         <th>Description</th>
         <th>URL</th>
-        <th>Author</th>
     </tr>
 
     @foreach (BookAuthor BookAuthor in Model.BookAuthor)
@@ -17,9 +17,9 @@
         {
             <tr>
                 <td>@Html.DisplayFor(modelItem => BookAuthor.Name)</td>
+                <td>@Html.DisplayFor(modelItem => BookAuthor.AuthorName)</td>
                 <td>@Html.DisplayFor(modelItem => BookAuthor.Description)</td>
                 <td>@Html.DisplayFor(modelItem => BookAuthor.URL)</td>
-                <td>@Html.DisplayFor(modelItem => BookAuthor.AuthorName)</td>
             </tr>
         }
         else { }

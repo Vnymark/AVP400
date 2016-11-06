@@ -61,6 +61,18 @@
   <wsdl:message name="IService1_GetBookAuthor_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetBookAuthorResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_GetAuthorName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAuthorName" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetAuthorName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAuthorNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ImportFile_InputMessage">
+    <wsdl:part name="parameters" element="tns:ImportFile" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ImportFile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ImportFileResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="GetBooks">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetBooks" message="tns:IService1_GetBooks_InputMessage" />
@@ -97,6 +109,14 @@
     <wsdl:operation name="GetBookAuthor">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetBookAuthor" message="tns:IService1_GetBookAuthor_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetBookAuthorResponse" message="tns:IService1_GetBookAuthor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAuthorName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetAuthorName" message="tns:IService1_GetAuthorName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetAuthorNameResponse" message="tns:IService1_GetAuthorName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ImportFile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ImportFile" message="tns:IService1_ImportFile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ImportFileResponse" message="tns:IService1_ImportFile_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -175,6 +195,24 @@
     </wsdl:operation>
     <wsdl:operation name="GetBookAuthor">
       <soap:operation soapAction="http://tempuri.org/IService1/GetBookAuthor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAuthorName">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetAuthorName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportFile">
+      <soap:operation soapAction="http://tempuri.org/IService1/ImportFile" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
