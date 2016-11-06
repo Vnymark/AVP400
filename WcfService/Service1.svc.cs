@@ -160,19 +160,32 @@ namespace WcfService
             {
                 try
                 {
-                    Author newAuthor = new Author();
-                    newAuthor.Name = name;
-                    db.Author.Add(newAuthor);
-                    db.SaveChanges();
-                    message = "Author added successfully.";
-                }
-                catch (Exception)
-                {
-                    message = "Could not add author.";
+                    
+                        var dbAuthorList = db.Author.ToList();
+                        foreach (var rowInDatabase in dbAuthorList)
+                        {
+                            if (rowInDatabase.Name == name)
+                            {
+                                message = "Author already exists";
+                                break;
+                            }
+                        }
+                        if (message != "Author already exists")
+                        { 
+                            Author newAuthor = new Author();
+                            newAuthor.Name = name;
+                            db.Author.Add(newAuthor);
+                            db.SaveChanges();
+                            message = "Author added successfully.";
+                        }
 
                 }
+                    catch (Exception)
+                    {
+                        message = "Could not add author.";
+                    }
+                }
                 return message;
-            }
         }
 
         public string EditAuthor(int id, string name)
@@ -227,7 +240,7 @@ namespace WcfService
                         catch (Exception)
                         {
                             message = "Could not delete author.";
-                            throw;
+                            
                         }
                         break;
                     }
@@ -277,20 +290,17 @@ namespace WcfService
             return AuthorName;
         }
 
-        public string[] ImportFile()
+        public void ImportFile()
         {
             string readText = File.ReadAllText(@"C:\Users\Wezno\Documents\Visual Studio 2015\Projects\AVP400\WcfService\App_Data\import.txt");
-            
-            List<string> listStrLineElements = new List<string>();
-            listStrLineElements = readText.Split(new string[] { Environment.NewLine }, StringSplitOptions.None).ToList();// You need using System.Linq at the top.
-            List<string> rowList = listStrLineElements.SelectMany(s => s.Split(',')).ToList();// The \t is an *escape character* meaning tab.
+            List<string> txtList = new List<string>();
+            txtList = readText.Split(new string[] { Environment.NewLine }, StringSplitOptions.None).ToList();
+            List<string> rowList = txtList.SelectMany(s => s.Split(',')).ToList();
             string[] authors = rowList.ToArray();
-            
             foreach(string i in authors)
             {
                 AddAuthor(i);
             }
-            return rowList.ToArray();
         }
     }
 }

@@ -44,7 +44,7 @@ namespace WcfService
         string GetAuthorName(int? id);
 
         [OperationContract]
-        string[] ImportFile();
+        void ImportFile();
 
         // TODO: Add your service operations here
     }
