@@ -12,8 +12,8 @@ namespace WindowsFormsAdmin
 {
     public partial class EditAuthor : Form
     {
-        int iId;
-        string sMessage;
+        int id;
+        string message;
         public EditAuthor()
         {
             InitializeComponent();
@@ -27,16 +27,16 @@ namespace WindowsFormsAdmin
         {
             try
             {
-                iId = Int16.Parse(textBox1.Text);
+                id = Int16.Parse(textBox1.Text);
             }
             catch (Exception)
             {
-                sMessage = "Couldn't parse the id successfully.";
+                message = "Couldn't parse the id successfully.";
             }
 
             ServiceReference.Service1Client Client = new ServiceReference.Service1Client();
-            sMessage = Client.EditAuthor(iId, textBox1.Text);
-            MessageBox.Show(sMessage);
+            message = Client.EditAuthor(id, textBox1.Text);
+            MessageBox.Show(message);
         }
     }
 }

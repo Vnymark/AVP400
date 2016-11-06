@@ -12,9 +12,9 @@ namespace WindowsFormsAdmin
 {
     public partial class EditBook : Form
     {
-        int iId, iAuthor;
-        short iText4;
-        string sMessage;
+        int id, author;
+        short text4;
+        string message;
         public EditBook()
         {
             InitializeComponent();
@@ -64,38 +64,38 @@ namespace WindowsFormsAdmin
         {
             try
             {
-                iId = Int16.Parse(textBox1.Text);
+                id = Int16.Parse(textBox1.Text);
             }
             catch (Exception)
             {
-                sMessage = "Couldn't parse the id successfully.";
+                message = "Couldn't parse the id successfully.";
             }
             try
             {
-                iText4 = short.Parse(textBox5.Text);
+                text4 = short.Parse(textBox5.Text);
             }
             catch (Exception)
             {
-                sMessage = "Couldn't parse the visibility successfully.";
+                message = "Couldn't parse the visibility successfully.";
             }
             if (textBox6.Text == null) {
-                iAuthor = 0;
+                author = 0;
             }
             else
             {
                 try
                 {
-                    iAuthor = int.Parse(textBox6.Text);
+                    author = int.Parse(textBox6.Text);
                 }
                 catch (Exception)
                 {
-                    sMessage = "Couldn't parse the author successfully.";
+                    message = "Couldn't parse the author successfully.";
                 }
             }
 
             ServiceReference.Service1Client Client = new ServiceReference.Service1Client();
-            sMessage = Client.EditBook(iId, textBox2.Text, textBox3.Text, textBox4.Text, iText4, iAuthor);
-            MessageBox.Show(sMessage);
+            message = Client.EditBook(id, textBox2.Text, textBox3.Text, textBox4.Text, text4, author);
+            MessageBox.Show(message);
         }
     }
 }

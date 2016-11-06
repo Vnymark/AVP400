@@ -12,7 +12,7 @@ namespace WindowsFormsAdmin
 {
     public partial class AddAuthor : Form
     {
-        string sMessage;
+        string message;
         public AddAuthor()
         {
             InitializeComponent();
@@ -25,8 +25,8 @@ namespace WindowsFormsAdmin
         private void button1_Click(object sender, EventArgs e)
         {
             ServiceReference.Service1Client Client = new ServiceReference.Service1Client();
-            sMessage = Client.AddAuthor(textBox1.Text);
-            MessageBox.Show(sMessage);
+            message = Client.AddAuthor(textBox1.Text);
+            MessageBox.Show(message);
         }
     }
 }

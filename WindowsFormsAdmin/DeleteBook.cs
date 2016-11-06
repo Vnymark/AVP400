@@ -12,8 +12,8 @@ namespace WindowsFormsAdmin
 {
     public partial class DeleteBook : Form
     { 
-        int iId;
-        string sMessage;
+        int id;
+        string message;
             public DeleteBook()
         {
             InitializeComponent();
@@ -28,16 +28,16 @@ namespace WindowsFormsAdmin
         {
             try
             {
-                iId = Int16.Parse(textBox1.Text);
+                id = Int16.Parse(textBox1.Text);
             }
             catch (Exception)
             {
-                sMessage = "Couldn't parse the id successfully.";
+                message = "Couldn't parse the id successfully.";
             }
 
             ServiceReference.Service1Client Client = new ServiceReference.Service1Client();
-            sMessage = Client.DeleteBook(iId);
-            MessageBox.Show(sMessage);
+            message = Client.DeleteBook(id);
+            MessageBox.Show(message);
         }
     }
 }

@@ -12,9 +12,9 @@ namespace WindowsFormsAdmin
 {
     public partial class AddBook : Form
     {
-        int iAuthor;
-        short iText4;
-        string sMessage;
+        int author;
+        short text4;
+        string message;
         public AddBook()
         {
             InitializeComponent();
@@ -49,23 +49,23 @@ namespace WindowsFormsAdmin
         {
             try
             {
-                iText4 = short.Parse(textBox4.Text);
+                text4 = short.Parse(textBox4.Text);
             }
             catch (Exception)
             {
-                sMessage = "Couldn't parse the visibility successfully.";
+                message = "Couldn't parse the visibility successfully.";
             }
             try
             {
-                iAuthor = int.Parse(textBox5.Text);
+                author = int.Parse(textBox5.Text);
             }
             catch (Exception)
             {
-                sMessage = "Couldn't parse the author successfully.";
+                message = "Couldn't parse the author successfully.";
             }
             ServiceReference.Service1Client Client = new ServiceReference.Service1Client();
-            sMessage = Client.AddBook(textBox1.Text, textBox2.Text, textBox3.Text, iText4, iAuthor);
-            MessageBox.Show(sMessage);
+            message = Client.AddBook(textBox1.Text, textBox2.Text, textBox3.Text, text4, author);
+            MessageBox.Show(message);
         }
     }
 }
