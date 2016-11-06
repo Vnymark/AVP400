@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
@@ -253,13 +254,13 @@ namespace WcfService
                     newBook.Description = rowInDatabase.Description;
                     newBook.URL = rowInDatabase.URL;
                     newBook.Visability = rowInDatabase.Visability;
-                    newBook.AuthorName = getAuthorName(rowInDatabase.AuthorId);
+                    newBook.AuthorName = GetAuthorName(rowInDatabase.AuthorId);
                     ListBooks.Add(newBook);
                 }
             }
             return ListBooks.ToArray();
         }
-        public string getAuthorName(int? id)
+        public string GetAuthorName(int? id)
         {
             string AuthorName = "";
             using (DB_connection db = new DB_connection())
@@ -274,6 +275,18 @@ namespace WcfService
                 }
             }
             return AuthorName;
+        }
+
+        public string[] ImportFile()
+        {
+            string message = "";
+            string readText = File.ReadAllText(@"C:\Users\Wezno\Documents\Visual Studio 2015\Projects\AVP400\WcfService\App_Data\import.txt");
+            
+            List<string> listStrLineElements = new List<string>();
+            listStrLineElements = readText.Split(new string[] { Environment.NewLine }, StringSplitOptions.None).ToList();// You need using System.Linq at the top.
+            List<string> rowList = listStrLineElements.SelectMany(s => s.Split(',')).ToList();// The \t is an *escape character* meaning tab.
+            
+            return rowList.ToArray();
         }
     }
 }

@@ -41,7 +41,10 @@ namespace WcfService
         BookAuthor[] GetBookAuthor();
 
         [OperationContract]
-        string getAuthorName(int? id);
+        string GetAuthorName(int? id);
+
+        [OperationContract]
+        string[] ImportFile();
 
         // TODO: Add your service operations here
     }
