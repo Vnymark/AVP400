@@ -17,6 +17,9 @@ namespace WindowsFormsAdmin
             InitializeComponent();
         }
 
+        //Description - Menu
+        //Every menu option needed different designs( different number of buttons etc.)
+        //Because of that there is alot of different forms, instead of instances of the same one.
         private void button1_Click(object sender, EventArgs e)
         {
             ViewPublicBooks myForm = new ViewPublicBooks();
