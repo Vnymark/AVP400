@@ -119,15 +119,15 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetBookAuthor">
+  <xs:element name="GetPublicBooks">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetBookAuthorResponse">
+  <xs:element name="GetPublicBooksResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/WcfService" minOccurs="0" name="GetBookAuthorResult" nillable="true" type="q3:ArrayOfBookAuthor" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/WcfService" minOccurs="0" name="GetPublicBooksResult" nillable="true" type="q3:ArrayOfPublicBook" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

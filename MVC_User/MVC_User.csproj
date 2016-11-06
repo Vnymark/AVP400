@@ -111,6 +111,7 @@
     <Content Include="Properties\DataSources\WcfService.Book.datasource" />
     <Content Include="Properties\DataSources\WcfService.BookAuthor.datasource" />
     <Content Include="Properties\DataSources\WcfService.BookAuthor1.datasource" />
+    <Content Include="Properties\DataSources\WcfService.PublicBook.datasource" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

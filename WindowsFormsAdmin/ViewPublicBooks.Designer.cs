@@ -80,7 +80,7 @@
             // 
             // bookAuthorBindingSource
             // 
-            this.bookAuthorBindingSource.DataSource = typeof(WindowsFormsAdmin.ServiceReference.BookAuthor);
+            this.bookAuthorBindingSource.DataSource = typeof(WindowsFormsAdmin.ServiceReference.PublicBook);
             // 
             // ViewPublicBooks
             // 

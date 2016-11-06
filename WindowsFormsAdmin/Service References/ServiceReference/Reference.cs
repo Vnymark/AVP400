@@ -233,9 +233,9 @@ namespace WindowsFormsAdmin.ServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="BookAuthor", Namespace="http://schemas.datacontract.org/2004/07/WcfService")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="PublicBook", Namespace="http://schemas.datacontract.org/2004/07/WcfService")]
     [System.SerializableAttribute()]
-    public partial class BookAuthor : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class PublicBook : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
@@ -392,11 +392,11 @@ namespace WindowsFormsAdmin.ServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeleteAuthor", ReplyAction="http://tempuri.org/IService1/DeleteAuthorResponse")]
         System.Threading.Tasks.Task<string> DeleteAuthorAsync(int id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetBookAuthor", ReplyAction="http://tempuri.org/IService1/GetBookAuthorResponse")]
-        WindowsFormsAdmin.ServiceReference.BookAuthor[] GetBookAuthor();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetPublicBooks", ReplyAction="http://tempuri.org/IService1/GetPublicBooksResponse")]
+        WindowsFormsAdmin.ServiceReference.PublicBook[] GetPublicBooks();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetBookAuthor", ReplyAction="http://tempuri.org/IService1/GetBookAuthorResponse")]
-        System.Threading.Tasks.Task<WindowsFormsAdmin.ServiceReference.BookAuthor[]> GetBookAuthorAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetPublicBooks", ReplyAction="http://tempuri.org/IService1/GetPublicBooksResponse")]
+        System.Threading.Tasks.Task<WindowsFormsAdmin.ServiceReference.PublicBook[]> GetPublicBooksAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAuthorName", ReplyAction="http://tempuri.org/IService1/GetAuthorNameResponse")]
         string GetAuthorName(System.Nullable<int> id);
@@ -502,12 +502,12 @@ namespace WindowsFormsAdmin.ServiceReference {
             return base.Channel.DeleteAuthorAsync(id);
         }
         
-        public WindowsFormsAdmin.ServiceReference.BookAuthor[] GetBookAuthor() {
-            return base.Channel.GetBookAuthor();
+        public WindowsFormsAdmin.ServiceReference.PublicBook[] GetPublicBooks() {
+            return base.Channel.GetPublicBooks();
         }
         
-        public System.Threading.Tasks.Task<WindowsFormsAdmin.ServiceReference.BookAuthor[]> GetBookAuthorAsync() {
-            return base.Channel.GetBookAuthorAsync();
+        public System.Threading.Tasks.Task<WindowsFormsAdmin.ServiceReference.PublicBook[]> GetPublicBooksAsync() {
+            return base.Channel.GetPublicBooksAsync();
         }
         
         public string GetAuthorName(System.Nullable<int> id) {

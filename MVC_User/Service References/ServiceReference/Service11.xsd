@@ -32,13 +32,13 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfAuthor" nillable="true" type="tns:ArrayOfAuthor" />
-  <xs:complexType name="ArrayOfBookAuthor">
+  <xs:complexType name="ArrayOfPublicBook">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="BookAuthor" nillable="true" type="tns:BookAuthor" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PublicBook" nillable="true" type="tns:PublicBook" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="ArrayOfBookAuthor" nillable="true" type="tns:ArrayOfBookAuthor" />
-  <xs:complexType name="BookAuthor">
+  <xs:element name="ArrayOfPublicBook" nillable="true" type="tns:ArrayOfPublicBook" />
+  <xs:complexType name="PublicBook">
     <xs:sequence>
       <xs:element minOccurs="0" name="AuthorName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
@@ -47,5 +47,5 @@
       <xs:element minOccurs="0" name="URL" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="BookAuthor" nillable="true" type="tns:BookAuthor" />
+  <xs:element name="PublicBook" nillable="true" type="tns:PublicBook" />
 </xs:schema>

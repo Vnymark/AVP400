@@ -10,12 +10,8 @@ using System.Timers;
 
 namespace WcfService
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service1" in code, svc and config file together.
-    // NOTE: In order to launch WCF Test Client for testing this service, please select Service1.svc or Service1.svc.cs at the Solution Explorer and start debugging.
-
     public class Service1 : IService1
     {
-
         public Book[] GetBooks()
         {
             List<Book> ListBooks = new List<Book>();
@@ -262,7 +258,7 @@ namespace WcfService
             }
         }
 
-        public PublicBook[] GetBookAuthor()
+        public PublicBook[] GetPublicBooks()
         {
             List<PublicBook> ListBooks = new List<PublicBook>();
             using (DB_connection db = new DB_connection())
@@ -284,7 +280,7 @@ namespace WcfService
             }
             return ListBooks.ToArray();
         }
-        public string GetAuthorName(int? id)
+        public string GetAuthorName(int? id) //Used when creating the list of PublicBooks.
         {
             string AuthorName = "";
             using (DB_connection db = new DB_connection())

@@ -16,7 +16,7 @@ namespace MVC_User.Controllers
         {
             ServiceReference.Service1Client Client = new ServiceReference.Service1Client();
             MasterViewModel mymodel = new MasterViewModel();
-            mymodel.PublicBook = Client.GetBookAuthor();
+            mymodel.PublicBook = Client.GetPublicBooks();
             return View(mymodel);
         }
     }
