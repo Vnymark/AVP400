@@ -12,6 +12,8 @@ namespace WcfService
 {
     public class Service1 : IService1
     {
+        //Description - GetBooks
+        //Creates a list of all books in the database and adds them to an array.
         public Book[] GetBooks()
         {
             List<Book> ListBooks = new List<Book>();
@@ -33,6 +35,9 @@ namespace WcfService
             return ListBooks.ToArray();
         }
 
+        //Description - AddBook
+        //Creates a list of all bookss in the database and checks if there already is a book with the same name.
+        //If not it creates a new book and saves the changes to the database.
         public string AddBook(string name, string description, string url, short visability, int author)
         {
             string message = "";
@@ -65,12 +70,14 @@ namespace WcfService
                 catch (Exception)
                 {
                     message = "Could not add book.";
-
                 }
                 return message;
             }
         }
 
+        //Description - EditBook
+        //Creates a list of all books in the database and checks for a match compared to the id.
+        //Then it changes the fields to the new information and saves the changes.
         public string EditBook(int id, string name, string description, string url, short visability, int author)
         {
             string message = "";
@@ -112,6 +119,9 @@ namespace WcfService
             }
         }
 
+        //Description - DeleteBook
+        //Creates a list of all books in the database and checks for a match compared to the id.
+        //Then it deletes the row in the database and saves the changes.
         public string DeleteBook(int id)
         {
             string message = "";
@@ -143,7 +153,8 @@ namespace WcfService
                 return message;
             }
         }
-
+        //Description - GetAuthor
+        //Creates a list of all authors in the database and adds them to an array.
         public Author[] GetAuthor()
         {
             List<Author> ListAuthor = new List<Author>();
@@ -161,6 +172,9 @@ namespace WcfService
             return ListAuthor.ToArray();
         }
 
+        //Description - AddAuthor
+        //Creates a list of all authors in the database and checks if there already is an author with the same name.
+        //If not it creates a new author and saves the changes to the database.
         public string AddAuthor(string name)
         {
             string message = "";
@@ -195,6 +209,9 @@ namespace WcfService
             return message;
         }
 
+        //Description - EditAuthor
+        //Creates a list of all authors in the database and checks for a match compared to the id.
+        //Then it changes the fields to the new information and saves the changes.
         public string EditAuthor(int id, string name)
         {
             string message = "";
@@ -226,7 +243,9 @@ namespace WcfService
             }
         }
 
-
+        //Description - DeleteAuthor
+        //Creates a list of all authors in the database and checks for a match compared to the id.
+        //Then it deletes the row in the database and saves the changes.
         public string DeleteAuthor(int id)
         {
             string message = "";
@@ -257,7 +276,10 @@ namespace WcfService
                 return message;
             }
         }
-
+        //GetPublicBooks - Description
+        //Used to create a list of books with visability set to 1.
+        //It also sets the name of the author instead of the authorId, with the help of GetAuthorName().
+        //This list is published to the user through MVC and also for the admin in WinForms.
         public PublicBook[] GetPublicBooks()
         {
             List<PublicBook> ListBooks = new List<PublicBook>();
@@ -280,7 +302,10 @@ namespace WcfService
             }
             return ListBooks.ToArray();
         }
-        public string GetAuthorName(int? id) //Used when creating the list of PublicBooks.
+
+        //GetAuthorName - Description
+        //Used when creating the list of PublicBooks, to match "Book.AuthorId" with the "Author.Name".
+        public string GetAuthorName(int? id) 
         {
             string AuthorName = "";
             using (DB_connection db = new DB_connection())
