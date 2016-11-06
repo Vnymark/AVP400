@@ -160,7 +160,6 @@ namespace WcfService
             {
                 try
                 {
-                    
                         var dbAuthorList = db.Author.ToList();
                         foreach (var rowInDatabase in dbAuthorList)
                         {
@@ -207,7 +206,6 @@ namespace WcfService
                         catch (Exception)
                         {
                             message = "Could not edit author.";
-                            
                         }
                         break;
                     }
@@ -240,7 +238,6 @@ namespace WcfService
                         catch (Exception)
                         {
                             message = "Could not delete author.";
-                            
                         }
                         break;
                     }
@@ -292,11 +289,10 @@ namespace WcfService
 
         public void ImportFile()
         {
-            string readText = File.ReadAllText(@"C:\Users\Wezno\Documents\Visual Studio 2015\Projects\AVP400\WcfService\App_Data\import.txt");
+            string readText = File.ReadAllText(@"C:\import.txt");
             List<string> txtList = new List<string>();
             txtList = readText.Split(new string[] { Environment.NewLine }, StringSplitOptions.None).ToList();
-            List<string> rowList = txtList.SelectMany(s => s.Split(',')).ToList();
-            string[] authors = rowList.ToArray();
+            string[] authors = txtList.SelectMany(s => s.Split(',')).ToArray();
             foreach(string i in authors)
             {
                 AddAuthor(i);
