@@ -279,13 +279,17 @@ namespace WcfService
 
         public string[] ImportFile()
         {
-            string message = "";
             string readText = File.ReadAllText(@"C:\Users\Wezno\Documents\Visual Studio 2015\Projects\AVP400\WcfService\App_Data\import.txt");
             
             List<string> listStrLineElements = new List<string>();
             listStrLineElements = readText.Split(new string[] { Environment.NewLine }, StringSplitOptions.None).ToList();// You need using System.Linq at the top.
             List<string> rowList = listStrLineElements.SelectMany(s => s.Split(',')).ToList();// The \t is an *escape character* meaning tab.
+            string[] authors = rowList.ToArray();
             
+            foreach(string i in authors)
+            {
+                AddAuthor(i);
+            }
             return rowList.ToArray();
         }
     }
