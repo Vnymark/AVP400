@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsAdmin
 {
-    partial class ViewBookAuthors
+    partial class ViewPublicBooks
     {
         /// <summary>
         /// Required designer variable.
@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.AuthorName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AuthorName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.uRLDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bookAuthorBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -54,17 +54,17 @@
             this.dataGridView1.Size = new System.Drawing.Size(630, 375);
             this.dataGridView1.TabIndex = 0;
             // 
-            // AuthorName
-            // 
-            this.AuthorName.DataPropertyName = "AuthorName";
-            this.AuthorName.HeaderText = "AuthorName";
-            this.AuthorName.Name = "AuthorName";
-            // 
             // nameDataGridViewTextBoxColumn
             // 
             this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
             this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
             this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            // 
+            // AuthorName
+            // 
+            this.AuthorName.DataPropertyName = "AuthorName";
+            this.AuthorName.HeaderText = "AuthorName";
+            this.AuthorName.Name = "AuthorName";
             // 
             // descriptionDataGridViewTextBoxColumn
             // 
@@ -82,14 +82,14 @@
             // 
             this.bookAuthorBindingSource.DataSource = typeof(WindowsFormsAdmin.ServiceReference.BookAuthor);
             // 
-            // ViewBookAuthors
+            // ViewPublicBooks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(654, 543);
             this.Controls.Add(this.dataGridView1);
-            this.Name = "ViewBookAuthors";
-            this.Text = "View Books with Author";
+            this.Name = "ViewPublicBooks";
+            this.Text = "View Public Books";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bookAuthorBindingSource)).EndInit();
             this.ResumeLayout(false);

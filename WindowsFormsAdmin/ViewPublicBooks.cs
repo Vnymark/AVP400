@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace WindowsFormsAdmin
 {
-    public partial class ViewBookAuthors : Form
+    public partial class ViewPublicBooks : Form
     {
-        public ViewBookAuthors()
+        public ViewPublicBooks()
         {
             InitializeComponent();
             ServiceReference.Service1Client Client = new ServiceReference.Service1Client();

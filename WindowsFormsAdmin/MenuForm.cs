@@ -19,7 +19,7 @@ namespace WindowsFormsAdmin
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ViewBookAuthors myForm = new ViewBookAuthors();
+            ViewPublicBooks myForm = new ViewPublicBooks();
             myForm.Show();
         }
 

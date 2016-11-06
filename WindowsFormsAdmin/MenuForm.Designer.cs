@@ -46,7 +46,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(455, 80);
             this.button1.TabIndex = 0;
-            this.button1.Text = "View Books with Authors";
+            this.button1.Text = "View Public Books";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -153,7 +153,7 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Name = "MenuForm";
-            this.Text = "MenuForm";
+            this.Text = "Menu";
             this.ResumeLayout(false);
 
         }
