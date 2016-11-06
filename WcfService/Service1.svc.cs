@@ -6,15 +6,16 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
+using System.Timers;
 
 namespace WcfService
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service1" in code, svc and config file together.
     // NOTE: In order to launch WCF Test Client for testing this service, please select Service1.svc or Service1.svc.cs at the Solution Explorer and start debugging.
+
     public class Service1 : IService1
     {
 
-        
         public Book[] GetBooks()
         {
             List<Book> ListBooks = new List<Book>();
@@ -43,21 +44,32 @@ namespace WcfService
             {
                 try
                 {
-                    Book newBook = new Book();
-                    newBook.Name = name;
-                    newBook.Description = description;
-                    newBook.URL = url;
-                    newBook.Visability = visability;
-                    newBook.AuthorId = author;
-                    db.Book.Add(newBook);
-                    db.SaveChanges();
-                    message = "Book added successfully.";
-                    
+                    var dbBookList = db.Book.ToList();
+                    foreach (var rowInDatabase in dbBookList)
+                    {
+                        if (rowInDatabase.Name == name)
+                        {
+                            message = "That name already exists";
+                            break;
+                        }
+                    }
+                    if (message != "That name already exists")
+                    {
+                        Book newBook = new Book();
+                        newBook.Name = name;
+                        newBook.Description = description;
+                        newBook.URL = url;
+                        newBook.Visability = visability;
+                        newBook.AuthorId = author;
+                        db.Book.Add(newBook);
+                        db.SaveChanges();
+                        message = "Book added successfully.";
+                    }
                 }
                 catch (Exception)
                 {
                     message = "Could not add book.";
-                    
+
                 }
                 return message;
             }
@@ -71,7 +83,7 @@ namespace WcfService
                 var dbBookList = db.Book.ToList();
                 foreach (var rowInDatabase in dbBookList)
                 {
-                    if(rowInDatabase.Id == id)
+                    if (rowInDatabase.Id == id)
                     {
                         try
                         {
@@ -82,8 +94,8 @@ namespace WcfService
                             if (author == 0) {
                                 rowInDatabase.AuthorId = null;
                             }
-                            else { 
-                            rowInDatabase.AuthorId = author;
+                            else {
+                                rowInDatabase.AuthorId = author;
                             }
                             db.SaveChanges();
                             message = "Book edited successfully.";
@@ -91,7 +103,7 @@ namespace WcfService
                         catch (Exception)
                         {
                             message = "Could not edit book.";
-                            
+
                         }
                         break;
                     }
@@ -160,31 +172,31 @@ namespace WcfService
             {
                 try
                 {
-                        var dbAuthorList = db.Author.ToList();
-                        foreach (var rowInDatabase in dbAuthorList)
+                    var dbAuthorList = db.Author.ToList();
+                    foreach (var rowInDatabase in dbAuthorList)
+                    {
+                        if (rowInDatabase.Name == name)
                         {
-                            if (rowInDatabase.Name == name)
-                            {
-                                message = "Author already exists";
-                                break;
-                            }
+                            message = "Author already exists";
+                            break;
                         }
-                        if (message != "Author already exists")
-                        { 
-                            Author newAuthor = new Author();
-                            newAuthor.Name = name;
-                            db.Author.Add(newAuthor);
-                            db.SaveChanges();
-                            message = "Author added successfully.";
-                        }
+                    }
+                    if (message != "Author already exists")
+                    {
+                        Author newAuthor = new Author();
+                        newAuthor.Name = name;
+                        db.Author.Add(newAuthor);
+                        db.SaveChanges();
+                        message = "Author added successfully.";
+                    }
 
                 }
-                    catch (Exception)
-                    {
-                        message = "Could not add author.";
-                    }
+                catch (Exception)
+                {
+                    message = "Could not add author.";
                 }
-                return message;
+            }
+            return message;
         }
 
         public string EditAuthor(int id, string name)
@@ -217,8 +229,8 @@ namespace WcfService
                 return message;
             }
         }
-       
-    
+
+
         public string DeleteAuthor(int id)
         {
             string message = "";
@@ -278,7 +290,7 @@ namespace WcfService
                 var dbAuthorList = db.Author.ToList();
                 foreach (var rowInDatabase in dbAuthorList)
                 {
-                    if(rowInDatabase.Id == id)
+                    if (rowInDatabase.Id == id)
                     {
                         AuthorName = rowInDatabase.Name;
                     }
@@ -289,14 +301,30 @@ namespace WcfService
 
         public void ImportFile()
         {
+            //The file is pure txt with names of authors seperated by ",".
+            //At import, the file is read and authors are and saved to the database.
+            //The AddAuthor filters out if there already exists an author with the same name, so the file doesn't need to be "cleaned".
             string readText = File.ReadAllText(@"C:\import.txt");
             List<string> txtList = new List<string>();
             txtList = readText.Split(new string[] { Environment.NewLine }, StringSplitOptions.None).ToList();
             string[] authors = txtList.SelectMany(s => s.Split(',')).ToArray();
-            foreach(string i in authors)
+            foreach (string i in authors)
             {
                 AddAuthor(i);
             }
+        }
+
+        private Timer timer;
+        public Service1()
+        {
+            this.timer = new System.Timers.Timer(1000 * 60); //Runs every minute.
+            this.timer.Elapsed += OnTimerElapsed;
+            this.timer.Start();
+        }
+
+        private void OnTimerElapsed(object sender, ElapsedEventArgs e)
+        {
+            ImportFile();
         }
     }
 }
