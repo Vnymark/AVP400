@@ -15,7 +15,10 @@ namespace WcfService
         public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        [DataType(DataType.Url)] //For making the link clickable in the MVC view.
+
+        //For making the link clickable in the MVC view.
+        //Inspiration from: http://www.codeproject.com/Articles/781804/ASP-Net-MVC-Hyperlinks-Open-the-page-in-a-new-brow
+        [DataType(DataType.Url)] 
         public string URL { get; set; }
         public string AuthorName { get; set; }
     }

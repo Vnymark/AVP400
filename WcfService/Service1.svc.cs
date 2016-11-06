@@ -297,11 +297,13 @@ namespace WcfService
             return AuthorName;
         }
 
+        //ImportFile() - Description
+        //The file is pure txt with names of authors seperated by ",".
+        //At import, the file is read and authors are created and saved to the database.
+        //The AddAuthor filters out if it already exists an author with the same name in the database, so the file doesn't need to be "cleaned".
+        //Inspiration from: http://stackoverflow.com/questions/39628974/how-to-import-text-file-and-save-data-into-database
         public void ImportFile()
         {
-            //The file is pure txt with names of authors seperated by ",".
-            //At import, the file is read and authors are and saved to the database.
-            //The AddAuthor filters out if there already exists an author with the same name, so the file doesn't need to be "cleaned".
             string readText = File.ReadAllText(@"C:\import.txt");
             List<string> txtList = new List<string>();
             txtList = readText.Split(new string[] { Environment.NewLine }, StringSplitOptions.None).ToList();
@@ -312,6 +314,10 @@ namespace WcfService
             }
         }
 
+        //Timer - Description
+        //A timer is created when the service is started and runs for 60 seconds.
+        //After 60 seconds it calls the ImportFile() and creates a new timer.
+        //Inspiration from: http://stackoverflow.com/questions/4614358/wcf-service-application-timer
         private Timer timer;
         public Service1()
         {
