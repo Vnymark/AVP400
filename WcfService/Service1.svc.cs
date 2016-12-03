@@ -345,6 +345,7 @@ namespace WcfService
         //Timer - Description
         //A timer is created when the service is started and runs for 60 seconds.
         //After 60 seconds it calls the ImportFile() and creates a new timer.
+        //(60 Seconds is way too little and will flood the log-file if the system runs for longer periods of time.)
         //Inspiration from: http://stackoverflow.com/questions/4614358/wcf-service-application-timer
         private Timer timer;
         public Service1()
