@@ -63,7 +63,7 @@ namespace WindowsFormsAdmin
             }
             catch (Exception)
             {
-                message = "Couldn't parse the author successfully.";
+                message = "Couldn't parse the author id successfully.";
                 Loggning.log(message);
             }
             ServiceReference.Service1Client Client = new ServiceReference.Service1Client();

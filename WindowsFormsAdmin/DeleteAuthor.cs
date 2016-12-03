@@ -32,7 +32,7 @@ namespace WindowsFormsAdmin
             }
             catch (Exception)
             {
-                message = "Couldn't parse the id successfully.";
+                message = "Couldn't parse the author id successfully.";
                 Loggning.log(message);
             }
 

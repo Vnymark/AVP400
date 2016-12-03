@@ -69,7 +69,7 @@ namespace WindowsFormsAdmin
             }
             catch (Exception)
             {
-                message = "Couldn't parse the id successfully.";
+                message = "Couldn't parse the book id successfully.";
                 Loggning.log(message);
             }
             try
@@ -92,7 +92,7 @@ namespace WindowsFormsAdmin
                 }
                 catch (Exception)
                 {
-                    message = "Couldn't parse the author successfully.";
+                    message = "Couldn't parse the author id successfully.";
                     Loggning.log(message);
                 }
             }
