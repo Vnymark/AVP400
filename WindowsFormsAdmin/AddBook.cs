@@ -48,6 +48,7 @@ namespace WindowsFormsAdmin
 
         private void button1_Click(object sender, EventArgs e)
         {
+            ServiceReference.Service1Client Client = new ServiceReference.Service1Client();
             try
             {
                 text4 = short.Parse(textBox4.Text);
@@ -56,6 +57,7 @@ namespace WindowsFormsAdmin
             {
                 message = "Couldn't parse the visibility successfully.";
                 Loggning.log(message);
+                MessageBox.Show(message);
             }
             try
             {
@@ -65,10 +67,13 @@ namespace WindowsFormsAdmin
             {
                 message = "Couldn't parse the author id successfully.";
                 Loggning.log(message);
+                MessageBox.Show(message);
             }
-            ServiceReference.Service1Client Client = new ServiceReference.Service1Client();
-            message = Client.AddBook(textBox1.Text, textBox2.Text, textBox3.Text, text4, author);
-            MessageBox.Show(message);
+            if (message != "Couldn't parse the visibility successfully." || message != "Couldn't parse the author id successfully.")
+            {
+                message = Client.AddBook(textBox1.Text, textBox2.Text, textBox3.Text, text4, author);
+                MessageBox.Show(message);
+            }
         }
     }
 }

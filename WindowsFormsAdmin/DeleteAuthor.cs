@@ -26,19 +26,19 @@ namespace WindowsFormsAdmin
 
         private void button1_Click(object sender, EventArgs e)
         {
+            ServiceReference.Service1Client Client = new ServiceReference.Service1Client();
             try
             {
                 id = Int16.Parse(textBox1.Text);
+                message = Client.DeleteAuthor(id);
+                MessageBox.Show(message);
             }
             catch (Exception)
             {
                 message = "Couldn't parse the author id successfully.";
                 Loggning.log(message);
+                MessageBox.Show(message);
             }
-
-            ServiceReference.Service1Client Client = new ServiceReference.Service1Client();
-            message = Client.DeleteAuthor(id);
-            MessageBox.Show(message);
         }
     }
 }
