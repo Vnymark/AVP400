@@ -69,7 +69,11 @@ namespace WindowsFormsAdmin
                 Logging.log(message);
                 MessageBox.Show(message);
             }
-            if (message != "Couldn't parse the visibility successfully." || message != "Couldn't parse the author id successfully.")
+            if (message == "Couldn't parse the visibility successfully." || message == "Couldn't parse the author id successfully.")
+            {
+               
+            }
+            else
             {
                 message = Client.AddBook(textBox1.Text, textBox2.Text, textBox3.Text, text4, author);
                 MessageBox.Show(message);

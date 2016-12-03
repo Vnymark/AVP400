@@ -7,12 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WcfService;
 
 namespace WindowsFormsAdmin
 {
     public partial class AddAuthor : Form
     {
-        ServiceReference.Service1Client Client = new ServiceReference.Service1Client();
+        
         string message;
         public AddAuthor()
         {
@@ -25,8 +26,10 @@ namespace WindowsFormsAdmin
 
         private void button1_Click(object sender, EventArgs e)
         {
+            ServiceReference.Service1Client Client = new ServiceReference.Service1Client();
             message = Client.AddAuthor(textBox1.Text);
             MessageBox.Show(message);
+            
         }
     }
 }

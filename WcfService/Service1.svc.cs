@@ -200,15 +200,14 @@ namespace WcfService
                         db.SaveChanges();
                         message = "Author added successfully.";
                     }
-
                 }
                 catch (Exception)
                 {
                     message = "Could not add author.";
                 }
+                Logging.log(message);
+                return message;
             }
-            Logging.log(message);
-            return message;
         }
 
         //Description - EditAuthor

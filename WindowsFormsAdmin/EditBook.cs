@@ -101,7 +101,11 @@ namespace WindowsFormsAdmin
                     MessageBox.Show(message);
                 }
             }
-            if (message != "Couldn't parse the book id successfully." || message != "Couldn't parse the visibility successfully." || message != "Couldn't parse the author id successfully.")
+            if (message == "Couldn't parse the book id successfully." || message == "Couldn't parse the visibility successfully." || message == "Couldn't parse the author id successfully.")
+            {
+                
+            }
+            else
             {
                 message = Client.EditBook(id, textBox2.Text, textBox3.Text, textBox4.Text, text4, author);
                 MessageBox.Show(message);
