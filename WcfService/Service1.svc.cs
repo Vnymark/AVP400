@@ -356,7 +356,11 @@ namespace WcfService
 
         private void OnTimerElapsed(object sender, ElapsedEventArgs e)
         {
+
+            Logging.log("Starting file import.");
             ImportFile();
+            Logging.log("File import complete.");
+            
         }
     }
 }
