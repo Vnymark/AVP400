@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WcfService;
 
 namespace WindowsFormsAdmin
 {
@@ -33,6 +34,7 @@ namespace WindowsFormsAdmin
             catch (Exception)
             {
                 message = "Couldn't parse the id successfully.";
+                Loggning.log(message);
             }
 
             ServiceReference.Service1Client Client = new ServiceReference.Service1Client();

@@ -50,11 +50,12 @@ namespace WcfService
                     {
                         if (rowInDatabase.Name == name)
                         {
-                            message = "That name already exists";
+                            message = "That book already exists";
+                            Loggning.log(message);
                             break;
                         }
                     }
-                    if (message != "That name already exists")
+                    if (message != "That book already exists")
                     {
                         Book newBook = new Book();
                         newBook.Name = name;
@@ -65,11 +66,13 @@ namespace WcfService
                         db.Book.Add(newBook);
                         db.SaveChanges();
                         message = "Book added successfully.";
+                        Loggning.log(message);
                     }
                 }
                 catch (Exception)
                 {
                     message = "Could not add book.";
+                    Loggning.log(message);
                 }
                 return message;
             }
@@ -102,17 +105,19 @@ namespace WcfService
                             }
                             db.SaveChanges();
                             message = "Book edited successfully.";
+                            Loggning.log(message);
                         }
                         catch (Exception)
                         {
                             message = "Could not edit book.";
-
+                            Loggning.log(message);
                         }
                         break;
                     }
                     else
                     {
                         message = "That book does not exist.";
+                        Loggning.log(message);
                     }
                 }
                 return message;
@@ -137,17 +142,20 @@ namespace WcfService
                             db.Book.Remove(rowInDatabase);
                             db.SaveChanges();
                             message = "Book deleted successfully.";
+                            Loggning.log(message);
                         }
                         catch (Exception)
                         {
                             message = "Could not delete book.";
-                            throw;
+                            Loggning.log(message);
+                            
                         }
                         break;
                     }
                     else
                     {
                         message = "That book does not exist.";
+                        Loggning.log(message);
                     }
                 }
                 return message;
@@ -188,6 +196,7 @@ namespace WcfService
                         if (rowInDatabase.Name == name)
                         {
                             message = "Author already exists";
+                            Loggning.log(message);
                             break;
                         }
                     }
@@ -198,12 +207,14 @@ namespace WcfService
                         db.Author.Add(newAuthor);
                         db.SaveChanges();
                         message = "Author added successfully.";
+                        Loggning.log(message);
                     }
 
                 }
                 catch (Exception)
                 {
                     message = "Could not add author.";
+                    Loggning.log(message);
                 }
             }
             return message;
@@ -227,16 +238,19 @@ namespace WcfService
                             rowInDatabase.Name = name;
                             db.SaveChanges();
                             message = "Author edited successfully.";
+                            Loggning.log(message);
                         }
                         catch (Exception)
                         {
                             message = "Could not edit author.";
+                            Loggning.log(message);
                         }
                         break;
                     }
                     else
                     {
                         message = "That author does not exist.";
+                        Loggning.log(message);
                     }
                 }
                 return message;
@@ -261,16 +275,19 @@ namespace WcfService
                             db.Author.Remove(rowInDatabase);
                             db.SaveChanges();
                             message = "Author deleted successfully.";
+                            Loggning.log(message);
                         }
                         catch (Exception)
                         {
                             message = "Could not delete author.";
+                            Loggning.log(message);
                         }
                         break;
                     }
                     else
                     {
                         message = "That author does not exist.";
+                        Loggning.log(message);
                     }
                 }
                 return message;

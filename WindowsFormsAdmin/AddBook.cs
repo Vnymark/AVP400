@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WcfService;
 
 namespace WindowsFormsAdmin
 {
@@ -54,6 +55,7 @@ namespace WindowsFormsAdmin
             catch (Exception)
             {
                 message = "Couldn't parse the visibility successfully.";
+                Loggning.log(message);
             }
             try
             {
@@ -62,6 +64,7 @@ namespace WindowsFormsAdmin
             catch (Exception)
             {
                 message = "Couldn't parse the author successfully.";
+                Loggning.log(message);
             }
             ServiceReference.Service1Client Client = new ServiceReference.Service1Client();
             message = Client.AddBook(textBox1.Text, textBox2.Text, textBox3.Text, text4, author);

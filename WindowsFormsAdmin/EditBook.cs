@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WcfService;
 
 namespace WindowsFormsAdmin
 {
@@ -69,6 +70,7 @@ namespace WindowsFormsAdmin
             catch (Exception)
             {
                 message = "Couldn't parse the id successfully.";
+                Loggning.log(message);
             }
             try
             {
@@ -77,6 +79,7 @@ namespace WindowsFormsAdmin
             catch (Exception)
             {
                 message = "Couldn't parse the visibility successfully.";
+                Loggning.log(message);
             }
             if (textBox6.Text == null) {
                 author = 0;
@@ -90,6 +93,7 @@ namespace WindowsFormsAdmin
                 catch (Exception)
                 {
                     message = "Couldn't parse the author successfully.";
+                    Loggning.log(message);
                 }
             }
 
