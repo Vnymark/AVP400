@@ -37,7 +37,7 @@ namespace WindowsFormsAdmin
             catch (Exception)
             {
                 message = "Couldn't parse the book id successfully.";
-                Loggning.log(message);
+                Logging.log(message);
                 MessageBox.Show(message);
             }
         }

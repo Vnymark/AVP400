@@ -71,7 +71,7 @@ namespace WcfService
                 {
                     message = "Could not add book.";
                 }
-                Loggning.log(message);
+                Logging.log(message);
                 return message;
             }
         }
@@ -115,7 +115,7 @@ namespace WcfService
                         message = "That book does not exist.";
                     }
                 }
-                Loggning.log(message);
+                Logging.log(message);
                 return message;
             }
         }
@@ -150,7 +150,7 @@ namespace WcfService
                         message = "That book does not exist.";
                     }
                 }
-                Loggning.log(message);
+                Logging.log(message);
                 return message;
             }
         }
@@ -207,7 +207,7 @@ namespace WcfService
                     message = "Could not add author.";
                 }
             }
-            Loggning.log(message);
+            Logging.log(message);
             return message;
         }
 
@@ -241,7 +241,7 @@ namespace WcfService
                         message = "That author does not exist.";
                     }
                 }
-                Loggning.log(message);
+                Logging.log(message);
                 return message;
             }
         }
@@ -276,7 +276,7 @@ namespace WcfService
                         message = "That author does not exist.";
                     }
                 }
-                Loggning.log(message);
+                Logging.log(message);
                 return message;
             }
         }

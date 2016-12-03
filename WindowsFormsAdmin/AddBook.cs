@@ -56,7 +56,7 @@ namespace WindowsFormsAdmin
             catch (Exception)
             {
                 message = "Couldn't parse the visibility successfully.";
-                Loggning.log(message);
+                Logging.log(message);
                 MessageBox.Show(message);
             }
             try
@@ -66,7 +66,7 @@ namespace WindowsFormsAdmin
             catch (Exception)
             {
                 message = "Couldn't parse the author id successfully.";
-                Loggning.log(message);
+                Logging.log(message);
                 MessageBox.Show(message);
             }
             if (message != "Couldn't parse the visibility successfully." || message != "Couldn't parse the author id successfully.")

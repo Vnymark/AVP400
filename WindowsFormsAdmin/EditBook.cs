@@ -72,7 +72,7 @@ namespace WindowsFormsAdmin
             catch (Exception)
             {
                 message = "Couldn't parse the book id successfully.";
-                Loggning.log(message);
+                Logging.log(message);
                 MessageBox.Show(message);
             }
             try
@@ -82,7 +82,7 @@ namespace WindowsFormsAdmin
             catch (Exception)
             {
                 message = "Couldn't parse the visibility successfully.";
-                Loggning.log(message);
+                Logging.log(message);
                 MessageBox.Show(message);
             }
             if (textBox6.Text == null) {
@@ -97,7 +97,7 @@ namespace WindowsFormsAdmin
                 catch (Exception)
                 {
                     message = "Couldn't parse the author id successfully.";
-                    Loggning.log(message);
+                    Logging.log(message);
                     MessageBox.Show(message);
                 }
             }

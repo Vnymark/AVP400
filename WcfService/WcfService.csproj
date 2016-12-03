@@ -95,7 +95,7 @@
     <Compile Include="Book.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Loggning.cs" />
+    <Compile Include="Logging.cs" />
     <Compile Include="PublicBook.cs" />
     <Compile Include="Model.Context.cs">
       <AutoGen>True</AutoGen>

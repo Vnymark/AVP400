@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WcfService
 {
-    public static class Loggning
+    public static class Logging
     {
         public static void log(string message)
         {
